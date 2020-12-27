@@ -225,7 +225,7 @@ if userge.has_bot:
             await callback_query.answer("you are in main menu", show_alert=True)
             return
         if len(pos_list) == 2:
-            text = " 𝐔𝐒𝐄𝐑𝐆𝐄-𝐗  𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨"
+            text = " 𝐏𝐔𝐑𝐏𝐋𝐄-𝐗 𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨"
             buttons = main_menu_buttons()
         elif len(pos_list) == 3:
             text, buttons = category_data(cur_pos)
@@ -298,7 +298,7 @@ if userge.has_bot:
 
         await xbot.edit_inline_text(
             callback_query.inline_message_id,
-            text=" 𝐔𝐒𝐄𝐑𝐆𝐄-𝐗  𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨 ",
+            text=" 𝐏𝐔𝐑𝐏𝐋𝐄-𝐗 𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨 ",
             reply_markup=InlineKeyboardMarkup(main_menu_buttons()),
         )
 
@@ -746,9 +746,9 @@ if userge.has_bot:
                 alive_info = f"""
     **[PURPLE-X](https://telegram.dog/x_xtests) is Up and Running**
 
- • 🐍 Python :  `v{versions.__python_version__}`
+ • 🐍  Python  :  `v{versions.__python_version__}`
  • 🔥 Pyrogram :  `v{versions.__pyro_version__}`
- • 🧬 𝑿 :  `v{get_version()}`
+ • 🧬    𝑿    :  `v{get_version()}`
 
 {_get_mode()}  |  🕔: {userge.uptime}
 """
