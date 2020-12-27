@@ -65,7 +65,7 @@ async def check_update(message: Message):
                 change_log + out, disable_web_page_preview=True
             )
         else:
-            await message.edit(f"**USERGE-X is up-to-date with [{branch}]**", del_in=5)
+            await message.edit(f"**PURPLE-X is up-to-date with [{branch}]**", del_in=5)
         return
     if pull_from_repo:
         if out:
@@ -76,7 +76,7 @@ async def check_update(message: Message):
             )
             if not push_to_heroku:
                 await message.edit(
-                    "**USERGE-X Successfully Updated!**\n"
+                    "**PURPLE-X Successfully Updated!**\n"
                     "`Now restarting... Wait for a while!`",
                     del_in=3,
                 )
