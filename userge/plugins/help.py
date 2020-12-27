@@ -54,20 +54,20 @@ SAVED_SETTINGS = get_collection("CONFIGS")
 REPO_X = InlineQueryResultArticle(
     title="Repo",
     input_message_content=InputTextMessageContent("**Here's how to setup PURPLE-X** "),
-    url="https://github.com/code-rgb/PURPLE-X",
+    url="https://github.com/thewhiteharlot/PURPLE-X",
     description="Setup Your Own",
     thumb_url="https://i.imgur.com/1xsOo9o.png",
     reply_markup=InlineKeyboardMarkup(
         [
             [
                 InlineKeyboardButton(
-                    "🔥 PURPLE-X Repo", url="https://github.com/code-rgb/PURPLE-X"
+                    "🔥 PURPLE-X Repo", url="https://github.com/thewhiteharlot/PURPLE-X"
                 ),
                 InlineKeyboardButton(
                     "🚀 Deploy PURPLE-X",
                     url=(
                         "https://heroku.com/deploy?template="
-                        "https://github.com/code-rgb/PURPLE-X/tree/alpha"
+                        "https://github.com/thewhiteharlot/PURPLE-X/tree/alpha"
                     ),
                 ),
             ]
@@ -1151,7 +1151,7 @@ if userge.has_bot:
             MAIN_MENU = InlineQueryResultArticle(
                 title="Main Menu",
                 input_message_content=InputTextMessageContent(" 𝗣𝗨𝗥𝗣𝗟𝗘-𝗫 𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨 "),
-                url="https://github.com/code-rgb/PURPLE-X",
+                url="https://github.com/thewhiteharlot/PURPLE-X",
                 description="PURPLE-X Main Menu",
                 thumb_url="https://i.imgur.com/1xsOo9o.png",
                 reply_markup=InlineKeyboardMarkup(main_menu_buttons()),

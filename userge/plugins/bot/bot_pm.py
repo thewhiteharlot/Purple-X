@@ -133,7 +133,7 @@ Nice To Meet You! I'm **{bot.first_name}** A Bot.
                         [
                             InlineKeyboardButton("CONTACT", url=f"t.me/{u_n}"),
                             InlineKeyboardButton(
-                                "REPO", url="https://github.com/code-rgb/PURPLE-X"
+                                "REPO", url="https://github.com/thewhiteharlot/PURPLE-X"
                             ),
                         ],
                         [
