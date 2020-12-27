@@ -746,9 +746,9 @@ if userge.has_bot:
                 alive_info = f"""
     **[PURPLE-X](https://telegram.dog/x_xtests) is Up and Running**
 
- • 🐍  Python  :  `v{versions.__python_version__}`
+ • 🐍 Python :  `v{versions.__python_version__}`
  • 🔥 Pyrogram :  `v{versions.__pyro_version__}`
- • 🧬    𝑿    :  `v{get_version()}`
+ • 🧬 𝑿 :  `v{get_version()}`
 
 {_get_mode()}  |  🕔: {userge.uptime}
 """
