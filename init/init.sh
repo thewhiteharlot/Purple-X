@@ -18,9 +18,9 @@ trap handleSigInt INT
 initUserge() {
     printLogo
     assertPrerequisites
-    sendMessage "Initializing USERGE-X ..."
+    sendMessage "Initializing PURPLE-X ..."
     assertEnvironment
-    editLastMessage "Starting USERGE-X ..."
+    editLastMessage "Starting PURPLE-X ..."
     printLine
 }
 
@@ -29,7 +29,7 @@ startUserge() {
 }
 
 stopUserge() {
-    sendMessage "Exiting USERGE-X ..."
+    sendMessage "Exiting PURPLE-X ..."
     exit 0
 }
 

@@ -12,7 +12,7 @@ from userge import Message, userge
 
 jikan = Jikan()
 t = TelegraphPoster(use_api=True)
-t.create_api_token("userge-X")
+t.create_api_token("purple-x")
 
 
 async def anime_call_api(search_str):
