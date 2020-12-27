@@ -10,8 +10,8 @@
         "Dual Mode",
         "Pyrogram"
     ],
-    "repository": "https://github.com/thewhiteharlot/Purple-X",
-    "website": "https://github.com/thewhiteharlot/Purple-X",
+    "repository": "https://github.com/code-rgb/USERGE-X",
+    "website": "https://github.com/code-rgb/USERGE-X",
     "success_url": "https://t.me/userge_x",
     "env": {
         "API_ID": {"description": "Get this value from https://my.telegram.org"},

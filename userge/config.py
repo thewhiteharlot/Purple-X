@@ -119,3 +119,4 @@ def get_version() -> str:
         _LOG.error(e)
         return "For Fix See -> https://github.com/code-rgb/USERGE-X/issues/17"
     return ver
+

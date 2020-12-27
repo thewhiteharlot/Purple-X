@@ -54,20 +54,20 @@ SAVED_SETTINGS = get_collection("CONFIGS")
 REPO_X = InlineQueryResultArticle(
     title="Repo",
     input_message_content=InputTextMessageContent("**Here's how to setup USERGE-X** "),
-    url="https://github.com/thewhiteharlot/Purple-X",
+    url="https://github.com/code-rgb/USERGE-X",
     description="Setup Your Own",
     thumb_url="https://i.imgur.com/1xsOo9o.png",
     reply_markup=InlineKeyboardMarkup(
         [
             [
                 InlineKeyboardButton(
-                    "🔥 USERGE-X Repo", url="https://github.com/thewhiteharlot/Purple-X"
+                    "🔥 USERGE-X Repo", url="https://github.com/code-rgb/USERGE-X"
                 ),
                 InlineKeyboardButton(
                     "🚀 Deploy USERGE-X",
                     url=(
                         "https://heroku.com/deploy?template="
-                        "https://github.com/thewhiteharlot/Purple-X/tree/alpha"
+                        "https://github.com/code-rgb/USERGE-X/tree/alpha"
                     ),
                 ),
             ]
@@ -99,7 +99,7 @@ async def _init() -> None:
 
 
 @userge.on_cmd(
-    "help", about={"header": "Guide to use PURPLE-X commands"}, allow_channels=False
+    "help", about={"header": "Guide to use USERGE commands"}, allow_channels=False
 )
 async def helpme(
     message: Message,
@@ -176,7 +176,7 @@ if userge.has_bot:
             else:
                 user_dict = await userge.bot.get_user_dict(Config.OWNER_ID[0])
                 await c_q.answer(
-                    f"Only {user_dict['flname']} Can Access this...! Build Your PURPLE-X",
+                    f"Only {user_dict['flname']} Can Access this...! Build Your USERGE-X",
                     show_alert=True,
                 )
 
@@ -744,11 +744,11 @@ if userge.has_bot:
                 ]
 
                 alive_info = f"""
-    **[PURPLE-X](https://telegram.dog/x_xtests) is Up and Running**
+    **[USERGE-X](https://telegram.dog/x_xtests) is Up and Running**
 
- • 🐍  Python  :  `v{versions.__python_version__}`
+ • 🐍 Python :  `v{versions.__python_version__}`
  • 🔥 Pyrogram :  `v{versions.__pyro_version__}`
- • 🧬    𝑿    :  `v{get_version()}`
+ • 🧬 𝑿 :  `v{get_version()}`
 
 {_get_mode()}  |  🕔: {userge.uptime}
 """
@@ -1151,7 +1151,7 @@ if userge.has_bot:
             MAIN_MENU = InlineQueryResultArticle(
                 title="Main Menu",
                 input_message_content=InputTextMessageContent(" 𝐔𝐒𝐄𝐑𝐆𝐄-𝐗  𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨 "),
-                url="https://github.com/thewhiteharlot/Purple-X",
+                url="https://github.com/code-rgb/USERGE-X",
                 description="Userge-X Main Menu",
                 thumb_url="https://i.imgur.com/1xsOo9o.png",
                 reply_markup=InlineKeyboardMarkup(main_menu_buttons()),
