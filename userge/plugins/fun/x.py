@@ -14,7 +14,7 @@ from userge import Config, Message, userge
 @userge.on_cmd(
     "x",
     about={
-        "header": "USERGE-X",
+        "header": "PURPLE-X",
         "flags": {"-alt": "To get inverted X", "-ghost": "spooky ghost"},
     },
     check_downpath=True,

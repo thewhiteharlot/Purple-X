@@ -53,21 +53,21 @@ _CATEGORY = {
 SAVED_SETTINGS = get_collection("CONFIGS")
 REPO_X = InlineQueryResultArticle(
     title="Repo",
-    input_message_content=InputTextMessageContent("**Here's how to setup USERGE-X** "),
-    url="https://github.com/code-rgb/USERGE-X",
+    input_message_content=InputTextMessageContent("**Here's how to setup PURPLE-X** "),
+    url="https://github.com/code-rgb/PURPLE-X",
     description="Setup Your Own",
     thumb_url="https://i.imgur.com/1xsOo9o.png",
     reply_markup=InlineKeyboardMarkup(
         [
             [
                 InlineKeyboardButton(
-                    "🔥 USERGE-X Repo", url="https://github.com/code-rgb/USERGE-X"
+                    "🔥 PURPLE-X Repo", url="https://github.com/code-rgb/PURPLE-X"
                 ),
                 InlineKeyboardButton(
-                    "🚀 Deploy USERGE-X",
+                    "🚀 Deploy PURPLE-X",
                     url=(
                         "https://heroku.com/deploy?template="
-                        "https://github.com/code-rgb/USERGE-X/tree/alpha"
+                        "https://github.com/code-rgb/PURPLE-X/tree/alpha"
                     ),
                 ),
             ]
@@ -176,7 +176,7 @@ if userge.has_bot:
             else:
                 user_dict = await userge.bot.get_user_dict(Config.OWNER_ID[0])
                 await c_q.answer(
-                    f"Only {user_dict['flname']} Can Access this...! Build Your USERGE-X",
+                    f"Only {user_dict['flname']} Can Access this...! Build Your PURPLE-X",
                     show_alert=True,
                 )
 
@@ -744,7 +744,7 @@ if userge.has_bot:
                 ]
 
                 alive_info = f"""
-    **[USERGE-X](https://telegram.dog/x_xtests) is Up and Running**
+    **[PURPLE-X](https://telegram.dog/x_xtests) is Up and Running**
 
  • 🐍 Python :  `v{versions.__python_version__}`
  • 🔥 Pyrogram :  `v{versions.__pyro_version__}`
@@ -785,7 +785,7 @@ if userge.has_bot:
                     else:
                         results.append(
                             InlineQueryResultCachedDocument(
-                                title="USERGE-X",
+                                title="PURPLE-X",
                                 file_id=MEDIA_URL[0],
                                 file_ref=MEDIA_URL[1],
                                 caption=alive_info,
@@ -837,7 +837,7 @@ if userge.has_bot:
                 if string_split[0] == "ofox":
                     codename = string_split[1]
                     t = TelegraphPoster(use_api=True)
-                    t.create_api_token("Userge-X")
+                    t.create_api_token("PURPLE-X")
                     photo = "https://i.imgur.com/582uaSk.png"
                     api_host = "https://api.orangefox.download/v2/device/"
                     try:
@@ -1150,9 +1150,9 @@ if userge.has_bot:
                     )
             MAIN_MENU = InlineQueryResultArticle(
                 title="Main Menu",
-                input_message_content=InputTextMessageContent(" 𝐔𝐒𝐄𝐑𝐆𝐄-𝐗  𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨 "),
-                url="https://github.com/code-rgb/USERGE-X",
-                description="Userge-X Main Menu",
+                input_message_content=InputTextMessageContent(" 𝗣𝗨𝗥𝗣𝗟𝗘-𝗫 𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨 "),
+                url="https://github.com/code-rgb/PURPLE-X",
+                description="PURPLE-X Main Menu",
                 thumb_url="https://i.imgur.com/1xsOo9o.png",
                 reply_markup=InlineKeyboardMarkup(main_menu_buttons()),
             )

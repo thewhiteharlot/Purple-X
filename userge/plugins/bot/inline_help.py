@@ -17,7 +17,7 @@ COMMANDS = {
         "i_q": "secret @DeletedUser420 This is a secret message",
     },
     "alive": {
-        "help_txt": "**Alive Command for USERGE-X**\n\nHere You can view Uptime, Setting and Versions of your bot and when you change settings they are updated in Real-time UwU\n>>>  `alive`",
+        "help_txt": "**Alive Command for PURPLE-X**\n\nHere You can view Uptime, Setting and Versions of your bot and when you change settings they are updated in Real-time UwU\n>>>  `alive`",
         "i_q": "alive",
     },
     "opinion": {
@@ -25,7 +25,7 @@ COMMANDS = {
         "i_q": "op Are Cats Cute ?",
     },
     "repo": {
-        "help_txt": "**Your USERGE-X Github repo**\n\nwith direct deploy button\n>>>  `repo`",
+        "help_txt": "**Your PURPLE-X Github repo**\n\nwith direct deploy button\n>>>  `repo`",
         "i_q": "repo",
     },
     "gapps": {
@@ -46,7 +46,7 @@ COMMANDS = {
     },
     "stylish": {
         "help_txt": "**Write it in Style**\n\nplugin to decorate text with unicode fonts.\n>>>  `stylish [text]`",
-        "i_q": "stylish USERGE-X",
+        "i_q": "stylish PURPLE-X",
     },
     "ytdl": {
         "help_txt": f"**Download YouTube Videos with Buttons**\n\nTo Download video from youtube with desired quality.\n>>>  `ytdl [link]` or `{Config.CMD_TRIGGER}iytdl`",
