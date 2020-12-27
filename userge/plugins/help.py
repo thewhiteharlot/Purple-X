@@ -56,7 +56,7 @@ REPO_X = InlineQueryResultArticle(
     input_message_content=InputTextMessageContent("**Here's how to setup PURPLE-X** "),
     url="https://github.com/thewhiteharlot/PURPLE-X",
     description="Setup Your Own",
-    thumb_url="https://i.imgur.com/1xsOo9o.png",
+    thumb_url="https://i.imgur.com/pQuABtc.jpg",
     reply_markup=InlineKeyboardMarkup(
         [
             [
