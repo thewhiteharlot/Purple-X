@@ -121,8 +121,8 @@ async def kang_(message: Message):
                 limit = "50" if is_anim else "120"
                 while limit in msg.text:
                     pack += 1
-                    packname = f"a{user.id}_by_userge_{pack}"
-                    packnick = f"{custom_packnick} Vol.{pack}"
+                    packname = f"a{user.id}_by_{user.username}_{pack}"
+                    packnick = f"@{user.username} kang library Book.{pack}"
                     if is_anim:
                         packname += "_anim"
                         packnick += " (Animated)"
@@ -272,15 +272,15 @@ def resize_photo(photo: str) -> io.BytesIO:
 
 
 KANGING_STR = (
-    "Using Witchery to kang this sticker...",
-    "Plagiarising hehe...",
+    "Using Alchemy to clone this sticker...",
+    "You know where sticker would look good? In my pack...",
     "Inviting this sticker over to my pack...",
-    "Kanging this sticker...",
-    "Hey that's a nice sticker!\nMind if I kang?!..",
-    "hehe me stel ur stikér\nhehe.",
+    "We are 0 days without kanging stickers, current record is: 0 days...",
+    "I choose you!\nGo Pi-kang-chu?!..",
+    "hehe finders keepers\nlosers weepers.",
     "Ay look over there (☉｡☉)!→\nWhile I kang this...",
-    "Roses are red violets are blue, kanging this sticker so my pacc looks cool",
-    "Imprisoning this sticker...",
+    "Alakazim Alakazam, let me kang this sticker to my Telegram",
+    "Taking this sticker to a trip on my database...",
     "Mr.Steal Your Sticker is stealing this sticker... ",
 )
 
