@@ -1153,7 +1153,7 @@ if userge.has_bot:
                 input_message_content=InputTextMessageContent(" 𝗣𝗨𝗥𝗣𝗟𝗘-𝗫 𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨 "),
                 url="https://github.com/thewhiteharlot/PURPLE-X",
                 description="PURPLE-X Main Menu",
-                thumb_url="https://i.imgur.com/1xsOo9o.png",
+                thumb_url="https://i.imgur.com/pQuABtc.jpg",
                 reply_markup=InlineKeyboardMarkup(main_menu_buttons()),
             )
             results.append(MAIN_MENU)
