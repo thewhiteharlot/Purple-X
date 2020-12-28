@@ -14,7 +14,7 @@ HELP_BUTTONS = None
 COMMANDS = {
     "secret": {
         "help_txt": "**Send a secret message to a user**\n (only the entered user and you can view the message)\n\n>>>  `secret @username [text]`",
-        "i_q": "secret @DeletedUser420 This is a secret message",
+        "i_q": "secret @Soulvessel This is a secret message",
     },
     "alive": {
         "help_txt": "**Alive Command for PURPLE-X**\n\nHere You can view Uptime, Setting and Versions of your bot and when you change settings they are updated in Real-time UwU\n>>>  `alive`",
@@ -49,7 +49,7 @@ COMMANDS = {
         "i_q": "stylish PURPLE-X",
     },
     "ytdl": {
-        "help_txt": f"**Download YouTube Videos with Buttons**\n\nTo Download video from youtube with desired quality.\n>>>  `ytdl [link]` or `{Config.CMD_TRIGGER}iytdl`",
+        "help_txt": f"**Download YouTube Videos or Audio with Buttons**\n\nTo Download Video / Audio from youtube with desired quality.\n>>>  `ytdl [URL or Text]` or `{Config.CMD_TRIGGER}iytdl` iytdl [URL / Text] or [Reply to URL / Text]",
         "i_q": "ytdl https://www.youtube.com/watch?v=dQw4w9WgXcQ",
     },
     "spoiler": {
