@@ -6,6 +6,7 @@ from math import ceil
 from typing import Any, Callable, Dict, List, Union
 
 import requests
+import youtube_dl as ytdl
 from html_telegraph_poster import TelegraphPoster
 from pymediainfo import MediaInfo
 from pyrogram import filters
@@ -22,22 +23,15 @@ from pyrogram.types import (
     InlineQueryResultPhoto,
     InputTextMessageContent,
 )
-from youtubesearchpython import VideosSearch
 
 from userge import Config, Message, get_collection, get_version, userge, versions
 from userge.core.ext import RawClient
 from userge.utils import get_file_id_and_ref
 from userge.utils import parse_buttons as pb
-from userge.utils import rand_key, xbot
+from userge.utils import xbot
 
 from .bot.alive import check_media_link
-from .bot.utube_inline import (
-    download_button,
-    get_yt_video_id,
-    get_ytthumb,
-    result_formatter,
-    ytsearch_data,
-)
+from .bot.utube_inline import get_ytthumb, ytdl_btn_generator
 from .fun.stylish import font_gen
 from .misc.redditdl import reddit_thumb_link
 
@@ -231,7 +225,7 @@ if userge.has_bot:
             await callback_query.answer("you are in main menu", show_alert=True)
             return
         if len(pos_list) == 2:
-            text = " 𝗣𝗨𝗥𝗣𝗟𝗘-𝗫 𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨"
+            text = " 𝐏𝐔𝐑𝐏𝐋𝐄-𝐗 𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨"
             buttons = main_menu_buttons()
         elif len(pos_list) == 3:
             text, buttons = category_data(cur_pos)
@@ -304,7 +298,7 @@ if userge.has_bot:
 
         await xbot.edit_inline_text(
             callback_query.inline_message_id,
-            text=" 𝗣𝗨𝗥𝗣𝗟𝗘-𝗫 𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨 ",
+            text=" 𝐏𝐔𝐑𝐏𝐋𝐄-𝐗 𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨 ",
             reply_markup=InlineKeyboardMarkup(main_menu_buttons()),
         )
 
@@ -597,6 +591,34 @@ if userge.has_bot:
                         reply_markup=InlineKeyboardMarkup(owner),
                     )
                 )
+
+            if str_y[0] == "ytdl":
+                if len(str_y) == 2:
+                    link = str_y[1]
+                    x = ytdl.YoutubeDL({"no-playlist": True}).extract_info(
+                        link, download=False
+                    )
+                    formats = x.get("formats", [x])
+                    ytlink_code = x.get("id", None)
+                    # uploader = x.get('uploader', None)
+                    # channel_url = x.get('channel_url', None)
+                    vid_title = x.get("title", None)
+                    # upload_date = date_formatter(str(x.get('upload_date', None)))
+                    vid_thumb = get_ytthumb(ytlink_code)
+                    buttons = ytdl_btn_generator(formats, ytlink_code, inline_query.id)
+                    caption_text = f"**{vid_title}**"
+                    # caption_text += f"🔗 [Link]({link})  |  📅 : {upload_date}"
+                    # caption_text += f"📹 : [{uploader}]({channel_url})"
+
+                    results.append(
+                        InlineQueryResultPhoto(
+                            photo_url=vid_thumb,
+                            title=vid_title,
+                            description="⬇️ Click to Download",
+                            caption=caption_text,
+                            reply_markup=InlineKeyboardMarkup(buttons),
+                        )
+                    )
 
             if string == "age_verification_alert":
                 buttons = [
@@ -1126,62 +1148,6 @@ if userge.has_bot:
                             reply_markup=InlineKeyboardMarkup(buttons),
                         )
                     )
-
-            if str_y[0].lower() == "ytdl" and len(str_y) == 2:
-                link = get_yt_video_id(str_y[1])
-                if link is None:
-                    search = VideosSearch(str_y[1], limit=15)
-                    resp = (search.result()).get("result")
-                    if len(resp) == 0:
-                        results.append(
-                            InlineQueryResultArticle(
-                                title="not Found",
-                                input_message_content=InputTextMessageContent(
-                                    f"No Results found for {str_y[1]}"
-                                ),
-                                description="INVALID",
-                            )
-                        )
-                    else:
-                        outdata = await result_formatter(resp)
-                        key_ = rand_key()
-                        ytsearch_data.store_(key_, outdata)
-                        buttons = InlineKeyboardMarkup(
-                            [
-                                [
-                                    InlineKeyboardButton(
-                                        text=f"1 / {len(outdata)}",
-                                        callback_data=f"ytdl_next_{key_}_1",
-                                    )
-                                ],
-                                [
-                                    InlineKeyboardButton(
-                                        text="📜  List all",
-                                        callback_data=f"ytdl_listall_{key_}_1",
-                                    ),
-                                    InlineKeyboardButton(
-                                        text="⬇️  Download",
-                                        callback_data=f'ytdl_download_{outdata[1]["video_id"]}_0',
-                                    ),
-                                ],
-                            ]
-                        )
-                    caption = outdata[1]["message"]
-                    photo = outdata[1]["thumb"]
-                else:
-                    caption, buttons = await download_button(link, body=True)
-                    photo = get_ytthumb(link)
-
-                results.append(
-                    InlineQueryResultPhoto(
-                        photo_url=photo,
-                        title=link,
-                        description="⬇️ Click to Download",
-                        caption=caption,
-                        reply_markup=buttons,
-                    )
-                )
-
             MAIN_MENU = InlineQueryResultArticle(
                 title="Main Menu",
                 input_message_content=InputTextMessageContent(" 𝗣𝗨𝗥𝗣𝗟𝗘-𝗫 𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨 "),
