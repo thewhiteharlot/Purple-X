@@ -38,9 +38,7 @@ async def addfed_(message: Message):
 )
 async def delfed_(message: Message):
     await asyncio.gather(
-        get_collection("fed_chats").delete_one(
-            {"_id": str(message.chat.id)}
-        ),
+        get_collection("fed_chats").delete_one({"_id": str(message.chat.id)}),
     )
     await message.edit("`Chat removed from fed`", del_in=5)
 
@@ -61,9 +59,7 @@ async def fban_(message: Message):
                 "`Please specify a reason to fban user`", del_in=10
             )
         user_id = (
-            replied.forward_from.id
-            if replied.forward_from
-            else replied.from_user.id
+            replied.forward_from.id if replied.forward_from else replied.from_user.id
         )
         reason = message.input_str
     else:
@@ -106,9 +102,7 @@ async def unfban_(message: Message):
     replied = message.reply_to_message
     if not user_id:
         user_id = (
-            replied.forward_from.id
-            if replied.forward_from
-            else replied.from_user.id
+            replied.forward_from.id if replied.forward_from else replied.from_user.id
         )
     try:
         user = await message.client.get_users(user_id)
