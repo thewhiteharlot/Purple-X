@@ -9,14 +9,14 @@ from userge import Message, get_collection, userge
 
 
 @userge.on_cmd(
-    "addfed",
+    "addf",
     about={
         "header": "Add a chat to fed list",
         "description": "Add a chat to fed list where message is to be sent",
         "usage": "{tr}addfed",
     },
 )
-async def addfed_(message: Message):
+async def addf_(message: Message):
     await asyncio.gather(
         get_collection("fed_chats").insert_one(
             {
@@ -29,14 +29,14 @@ async def addfed_(message: Message):
 
 
 @userge.on_cmd(
-    "delfed",
+    "delf",
     about={
         "header": "Remove a chat from fed list",
         "description": "Remove a chat from fed list",
         "usage": "{tr}delfed",
     },
 )
-async def delfed_(message: Message):
+async def delf_(message: Message):
     await asyncio.gather(
         get_collection("fed_chats").delete_one({"_id": str(message.chat.id)}),
     )
@@ -67,7 +67,7 @@ async def fban_(message: Message):
             return await message.edit(
                 "`Please specify a reason to fban user`", del_in=10
             )
-        user_id, reason = message.input_str.split("|")
+        user_id, reason = message.input_str.split("-")
     try:
         user = await message.client.get_users(user_id)
     except Exception:
