@@ -44,9 +44,9 @@ if userge.has_bot:
         u_n = master.username
         hello = f"""
 Hello {f_name},
-Nice To Meet You! I'm **{bot.first_name}** A Bot.
+Nice To Meet You! I'm **{bot.first_name}**, a bot.
 
-        <i><b>Powered by</i> [PURPLE-X](https://t.me/Soulvessel)</b>
+        <i><b>Powered by</i> [PURPLE-X](https://github.com/thewhiteharlot/purple-x)</b>
 
 <b>My Master is: {master.first_name}</b>
 <i>You can contact my <b>Master</b> and checkout the <b>Repo</b> For more info.</i>
