@@ -146,9 +146,13 @@ async def fban_(message: Message):
         status = f"Failed to fban in {len(failed)}/{total} feds.\n"
         for i in failed:
             status += (
-                "• " + i + " - Reason updated\n"
-                if "FedBan reason updated" in resp
-                else "\n"
+                "• "
+                + i
+                + (
+                    " - __Reason updated__\n"
+                    if "FedBan reason updated" in resp
+                    else "\n"
+                )
             )
     else:
         status = f"Success! Fbanned in `{total}` feds."
