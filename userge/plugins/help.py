@@ -722,13 +722,13 @@ if userge.has_bot:
                 ]
 
                 alive_info = f"""
-    **[LYNX](https://telegram.dog/x_xtests) is Up and Running**
+     **[LYNX](https://telegram.dog/x_xtests) is Up and Running**
 
-  • 🐍 Python      :  v{versions.__python_version__}
- • 🔥 Pyrogram :  v{versions.__pyro_version__}
- • 🧬 𝐋𝐘𝐍𝑿          :  v{get_version()}
+  •  🐍  Python   :     v{versions.__python_version__}
+  •  🔥    Pyro     :     v{versions.__pyro_version__}
+  •  🧬   𝐋𝐘𝐍𝑿    :     v{get_version()}
 
-{_get_mode()}  |  🕔: {userge.uptime}
+{_get_mode()}  |   🕔: {userge.uptime}
 """
 
                 if not MEDIA_URL and Config.ALIVE_MEDIA:
