@@ -19,7 +19,7 @@ async def ofox_(message: Message):
         await message.err("Provide a device codename to search recovery", del_in=2)
         return
     t = TelegraphPoster(use_api=True)
-    t.create_api_token("PURPLE-X")
+    t.create_api_token("LYNX")
     await message.edit("🔍 searching for recovery...", del_in=2)
     photo = "https://i.imgur.com/582uaSk.png"
     API_HOST = "https://api.orangefox.download/v2/device/"

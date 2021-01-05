@@ -18,9 +18,9 @@ trap handleSigInt INT
 initUserge() {
     printLogo
     assertPrerequisites
-    sendMessage "Initializing PURPLE-X ..."
+    sendMessage "Initializing LYNX ..."
     assertEnvironment
-    editLastMessage "Starting PURPLE-X ..."
+    editLastMessage "Starting LYNX ..."
     printLine
 }
 
@@ -29,7 +29,7 @@ startUserge() {
 }
 
 stopUserge() {
-    sendMessage "Exiting PURPLE-X ..."
+    sendMessage "Exiting LYNX ..."
     exit 0
 }
 

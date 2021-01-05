@@ -24,7 +24,7 @@ _LEVELS = {
 @userge.on_cmd(
     "logs",
     about={
-        "header": "check PURPLE-X logs",
+        "header": "check LYNX logs",
         "flags": {
             "-d": "get logs in document",
             "-h": "get heroku logs",
@@ -68,14 +68,14 @@ async def check_logs(message: Message):
                     await message.client.send_document(
                         chat_id=message.chat.id,
                         document="logs/userge.log",
-                        caption="**PURPLE-X Logs**",
+                        caption="**LYNX Logs**",
                     )
     else:
         await message.delete()
         await message.client.send_document(
             chat_id=message.chat.id,
             document="logs/userge.log",
-            caption="**PURPLE-X Logs**",
+            caption="**LYNX Logs**",
         )
 
 

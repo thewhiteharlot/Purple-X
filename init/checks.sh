@@ -155,9 +155,9 @@ _checkUpstreamRepo() {
 }
 
 _checkUnoffPlugins() {
-    editLastMessage "Checking PURPLE-X [Extra] Plugins ..."
+    editLastMessage "Checking LYNX [Extra] Plugins ..."
     if test $LOAD_UNOFFICIAL_PLUGINS = true; then
-        editLastMessage "\tLoading PURPLE-X [Extra] Plugins ..."
+        editLastMessage "\tLoading LYNX [Extra] Plugins ..."
         replyLastMessage "\t\tClonning ..."
         gitClone --depth=1 https://github.com/thewhiteharlot/Userge-Plugins
         editLastMessage "\t\tUpgrading PIP ..."
@@ -170,9 +170,9 @@ _checkUnoffPlugins() {
         cp -r Userge-Plugins/resources/* resources/
         rm -rf Userge-Plugins/
         deleteLastMessage
-        editLastMessage "\tPURPLE-X [Extra] Plugins Loaded Successfully !"
+        editLastMessage "\tLYNX [Extra] Plugins Loaded Successfully !"
     else
-        editLastMessage "\tPURPLE-X [Extra] Plugins Disabled !"
+        editLastMessage "\tLYNX [Extra] Plugins Disabled !"
     fi
     deleteLastMessage
 }

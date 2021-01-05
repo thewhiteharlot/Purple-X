@@ -121,7 +121,7 @@ class Userge(_AbstractUserge):
     has_bot = bool(Config.BOT_TOKEN)
 
     def __init__(self, **kwargs) -> None:
-        _LOG.info(_LOG_STR, "Setting PURPLE-X Configs")
+        _LOG.info(_LOG_STR, "Setting LYNX Configs")
         kwargs = {
             'api_id': Config.API_ID,
             'api_hash': Config.API_HASH,
@@ -147,7 +147,7 @@ class Userge(_AbstractUserge):
     async def start(self) -> None:
         """ start client and bot """
         pool._start()  # pylint: disable=protected-access
-        _LOG.info(_LOG_STR, "Starting PURPLE-X")
+        _LOG.info(_LOG_STR, "Starting LYNX")
         await super().start()
         if self._bot is not None:
             _LOG.info(_LOG_STR, "Starting X-bot")
@@ -181,7 +181,7 @@ class Userge(_AbstractUserge):
                 _LOG.info(_LOG_STR, "Loop Stopped !")
 
         async def _shutdown(sig: signal.Signals) -> None:
-            _LOG.info(_LOG_STR, f"Received Stop Signal [{sig.name}], Exiting PURPLE-X ...")
+            _LOG.info(_LOG_STR, f"Received Stop Signal [{sig.name}], Exiting LYNX ...")
             await _finalize()
 
         for sig in (signal.SIGHUP, signal.SIGTERM, signal.SIGINT):
@@ -190,7 +190,7 @@ class Userge(_AbstractUserge):
         self.loop.run_until_complete(self.start())
         for task in self._tasks:
             running_tasks.append(self.loop.create_task(task()))
-        logbot.edit_last_msg("PURPLE-X has Started Successfully !")
+        logbot.edit_last_msg("LYNX has Started Successfully !")
         logbot.end()
         mode = "[DUAL]" if RawClient.DUAL_MODE else "[BOT]" if Config.BOT_TOKEN else "[USER]"
         try:
@@ -198,7 +198,7 @@ class Userge(_AbstractUserge):
                 _LOG.info(_LOG_STR, f"Running Coroutine - {mode}")
                 self.loop.run_until_complete(coro)
             else:
-                _LOG.info(_LOG_STR, f"Idling PURPLE-X - {mode}")
+                _LOG.info(_LOG_STR, f"Idling LYNX - {mode}")
                 idle()
             self.loop.run_until_complete(_finalize())
         except (asyncio.exceptions.CancelledError, RuntimeError):

@@ -59,7 +59,7 @@ _CATEGORY = {
 SAVED_SETTINGS = get_collection("CONFIGS")
 REPO_X = InlineQueryResultArticle(
     title="Repo",
-    input_message_content=InputTextMessageContent("**Here's how to setup PURPLE-X** "),
+    input_message_content=InputTextMessageContent("**Here's how to setup LYNX** "),
     url="https://github.com/thewhiteharlot/PURPLE-X",
     description="Setup Your Own",
     thumb_url="https://i.imgur.com/pQuABtc.jpg",
@@ -67,10 +67,10 @@ REPO_X = InlineQueryResultArticle(
         [
             [
                 InlineKeyboardButton(
-                    "🔥 PURPLE-X Repo", url="https://github.com/thewhiteharlot/PURPLE-X"
+                    "🔥 LYNX Repo", url="https://github.com/thewhiteharlot/PURPLE-X"
                 ),
                 InlineKeyboardButton(
-                    "🚀 Deploy PURPLE-X",
+                    "🚀 Deploy LYNX",
                     url=(
                         "https://heroku.com/deploy?template="
                         "https://github.com/thewhiteharlot/PURPLE-X/tree/alpha"
@@ -182,7 +182,7 @@ if userge.has_bot:
             else:
                 user_dict = await userge.bot.get_user_dict(Config.OWNER_ID[0])
                 await c_q.answer(
-                    f"Only {user_dict['flname']} Can Access this...! Build Your PURPLE-X",
+                    f"Only {user_dict['flname']} Can Access this...! Build Your LYNX",
                     show_alert=True,
                 )
 
@@ -231,7 +231,7 @@ if userge.has_bot:
             await callback_query.answer("you are in main menu", show_alert=True)
             return
         if len(pos_list) == 2:
-            text = " 𝐏𝐔𝐑𝐏𝐋𝐄-𝐗 𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨"
+            text = " 𝗟𝗬𝗡𝗫 𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨"
             buttons = main_menu_buttons()
         elif len(pos_list) == 3:
             text, buttons = category_data(cur_pos)
@@ -722,11 +722,11 @@ if userge.has_bot:
                 ]
 
                 alive_info = f"""
-    **[PURPLE-X](https://telegram.dog/x_xtests) is Up and Running**
+    **[LYNX](https://telegram.dog/x_xtests) is Up and Running**
 
- • 🐍 Python :  `v{versions.__python_version__}`
- • 🔥 Pyrogram :  `v{versions.__pyro_version__}`
- • 🧬 𝑿 :  `v{get_version()}`
+  • 🐍 Python      :  v{versions.__python_version__}
+ • 🔥 Pyrogram :  v{versions.__pyro_version__}
+ • 🧬 𝐋𝐘𝐍𝑿          :  v{get_version()}
 
 {_get_mode()}  |  🕔: {userge.uptime}
 """
@@ -763,7 +763,7 @@ if userge.has_bot:
                     else:
                         results.append(
                             InlineQueryResultCachedDocument(
-                                title="PURPLE-X",
+                                title="LYNX",
                                 file_id=MEDIA_URL[0],
                                 file_ref=MEDIA_URL[1],
                                 caption=alive_info,
@@ -815,7 +815,7 @@ if userge.has_bot:
                 if string_split[0] == "ofox":
                     codename = string_split[1]
                     t = TelegraphPoster(use_api=True)
-                    t.create_api_token("PURPLE-X")
+                    t.create_api_token("LYNX")
                     photo = "https://i.imgur.com/582uaSk.png"
                     api_host = "https://api.orangefox.download/v2/device/"
                     try:
@@ -1184,7 +1184,7 @@ if userge.has_bot:
 
             MAIN_MENU = InlineQueryResultArticle(
                 title="Main Menu",
-                input_message_content=InputTextMessageContent(" 𝗣𝗨𝗥𝗣𝗟𝗘-𝗫 𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨 "),
+                input_message_content=InputTextMessageContent(" 𝗟𝗬𝗡𝗫 𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨 "),
                 url="https://github.com/thewhiteharlot/PURPLE-X",
                 description="PURPLE-X Main Menu",
                 thumb_url="https://i.imgur.com/pQuABtc.jpg",
