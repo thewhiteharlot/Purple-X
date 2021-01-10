@@ -118,6 +118,6 @@ def get_version() -> str:
                 return f"{ver}-fork-[X].{len(diff)}"
     except Exception as e:
         _LOG.error(e)
-        return "v0.3.2-PURPLE-154"
+        return "0.3.2-PURPLE-154"
     return ver
 
