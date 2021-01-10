@@ -754,8 +754,7 @@ if userge.has_bot:
                     elif MEDIA_TYPE == "tg_image":
                         results.append(
                             InlineQueryResultCachedPhoto(
-                                file_id=MEDIA_URL[0],
-                                file_ref=MEDIA_URL[1],
+                                file_id=MEDIA_URL
                                 caption=alive_info,
                                 reply_markup=InlineKeyboardMarkup(buttons),
                             )
