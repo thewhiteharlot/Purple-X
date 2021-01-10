@@ -763,7 +763,7 @@ if userge.has_bot:
                     else:
                         results.append(
                             InlineQueryResultCachedDocument(
-                                title="LYNX",
+                                title="USERGE-X",
                                 file_id=MEDIA_URL[0],
                                 caption=alive_info,
                                 description="ALIVE",
