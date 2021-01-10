@@ -111,13 +111,13 @@ def get_version() -> str:
         if "/thewhiteharlot/purple-x" in Config.UPSTREAM_REPO.lower():
             diff = list(_REPO.iter_commits(f'v{ver}..HEAD'))
             if diff:
-                return f"{ver}-ROGUE.{len(diff)}"
+                return f"{ver}-PURPLE.{len(diff)}"
         else:
             diff = list(_REPO.iter_commits(f'{Config.UPSTREAM_REMOTE}/alpha..HEAD'))
             if diff:
                 return f"{ver}-fork-[X].{len(diff)}"
     except Exception as e:
         _LOG.error(e)
-        return "For Fix See -> https://github.com/code-rgb/USERGE-X/issues/17"
+        return "v0.3.2-PURPLE-154"
     return ver
 
