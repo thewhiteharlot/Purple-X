@@ -764,7 +764,7 @@ if userge.has_bot:
                         results.append(
                             InlineQueryResultCachedDocument(
                                 title="USERGE-X",
-                                file_id=MEDIA_URL[0],
+                                file_id=MEDIA_URL,
                                 caption=alive_info,
                                 description="ALIVE",
                                 reply_markup=InlineKeyboardMarkup(buttons),
