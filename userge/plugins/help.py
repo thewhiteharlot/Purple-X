@@ -765,7 +765,6 @@ if userge.has_bot:
                             InlineQueryResultCachedDocument(
                                 title="LYNX",
                                 file_id=MEDIA_URL[0],
-                                file_ref=MEDIA_URL[1],
                                 caption=alive_info,
                                 description="ALIVE",
                                 reply_markup=InlineKeyboardMarkup(buttons),
