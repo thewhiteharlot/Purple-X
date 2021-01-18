@@ -22,7 +22,7 @@ import userge
 
 _LOG = userge.logging.getLogger(__name__)
 
-_BTN_URL_REGEX = re.compile(r"(\[([^\[]+?)\]\[buttonurl:(?:/{0,2})(.+?)(:same)?\])")
+_BTN_URL_REGEX = re.compile(r"(\[([^\[]+?)]\[buttonurl:(?:/{0,2})(.+?)(:same)?])")
 
 
 def get_file_id(
@@ -78,7 +78,7 @@ def post_to_telegraph(a_title: str, content: str) -> str:
     post_page = post_client.post(
         title=a_title,
         author=auth_name,
-        author_url="https://t.me/x_xtest",
+        author_url="https://t.me/x_xtests",
         text=content,
     )
     return post_page["url"]
