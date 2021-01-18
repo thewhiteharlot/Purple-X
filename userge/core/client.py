@@ -63,7 +63,7 @@ class _AbstractUserge(Methods, RawClient):
         """ Load plugin to USERGE-X """
         _LOG.debug(_LOG_STR, f"Importing {name}")
         _IMPORTED.append(
-            importlib.import_module(f"lynx.plugins.{name}"))
+            importlib.import_module(f"userge.plugins.{name}"))
         if reload_plugin:
             _IMPORTED[-1] = importlib.reload(_IMPORTED[-1])
         plg = _IMPORTED[-1]
