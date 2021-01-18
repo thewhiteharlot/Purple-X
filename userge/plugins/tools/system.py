@@ -58,8 +58,8 @@ async def _init() -> None:
 )
 async def restart_(message: Message):
     """ restart userge """
-    await message.edit("Restarting <b><u>USERGE-X</u></b> Services", log=__name__)
-    LOG.info("USERGE-X Services - Restart initiated")
+    await message.edit("Restarting <b><u>LYNX</u></b> Services", log=__name__)
+    LOG.info("LYNX Services - Restart initiated")
     if "t" in message.flags:
         shutil.rmtree(Config.TMP_PATH, ignore_errors=True)
     if "d" in message.flags:
@@ -231,7 +231,7 @@ async def getvar_(message: Message) -> None:
     "enhere",
     about={
         "header": "enable userbot in disabled chat.",
-        "flags": {"-all": "Enable Userbot in all chats."},
+        "flags": {"-all": "Enable LYNX in all chats."},
         "usage": "{tr}enhere [chat_id | username]\n{tr}enhere -all",
     },
 )
@@ -331,7 +331,7 @@ async def view_disabled_chats_(message: Message):
 
 @userge.on_cmd(
     "sleep (\\d+)",
-    about={"header": "sleep userge :P", "usage": "{tr}sleep [timeout in seconds]"},
+    about={"header": "sleep lynx :P", "usage": "{tr}sleep [timeout in seconds]"},
     allow_channels=False,
 )
 async def sleep_(message: Message) -> None:
