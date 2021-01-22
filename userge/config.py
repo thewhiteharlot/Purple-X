@@ -108,15 +108,15 @@ def get_version() -> str:
     """ get USERGE-X version """
     ver = f"{versions.__major__}.{versions.__minor__}.{versions.__micro__}"
     try:
-        if "/code-rgb/userge-x" in Config.UPSTREAM_REPO.lower():
+        if "/thewhiteharlot/purple-x" in Config.UPSTREAM_REPO.lower():
             diff = list(_REPO.iter_commits(f'v{ver}..HEAD'))
             if diff:
-                return f"{ver}-ROGUE.{len(diff)}"
+                return f"{ver}-AMETHYST.{len(diff)}"
         else:
             diff = list(_REPO.iter_commits(f'{Config.UPSTREAM_REMOTE}/alpha..HEAD'))
             if diff:
-                return f"{ver}-fork-[X].{len(diff)}"
+                return f"{ver}-PURPLE-[X].{len(diff)}"
     except Exception as e:
         _LOG.error(e)
-        return "For Fix See -> https://github.com/code-rgb/USERGE-X/issues/17"
+        return "Term-VIOLET/Error"
     return ver
