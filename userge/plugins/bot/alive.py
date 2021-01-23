@@ -75,7 +75,7 @@ async def alive_inline(message: Message):
         except (Forbidden, BadRequest) as ex:
             return await message.err(str(ex), del_in=5)
         await message.delete()
-        await asyncio.sleep(120)
+        await asyncio.sleep(450)
         await userge.delete_messages(message.chat.id, y.updates[0].id)
 
 
@@ -127,13 +127,12 @@ class Bot_Alive:
     @staticmethod
     def alive_info():
         alive_info = f"""
-<b>[USERGE-X](https://telegram.dog/x_xtests)  is Up and Running.
+<b>[LYNX](https://telegram.dog/x_xtests)  is Up and Running.
 
-  Python</b> :                 🐍  <code>v{versions.__python_version__}</code>
-  <b>Pyrogram</b> :         🔥  <code>v{versions.__pyro_version__}</code>
-  𝐋𝐘𝐍𝑿 :        🧬  <code>v{get_version()}</code>
-
-⚙  <b>Mode  ➥  {Bot_Alive._get_mode()}</b>
+  •  🐍  Python    :    `v{versions.__python_version__}`
+  •  🔥    Pyro     :    `v{versions.__pyro_version__}`
+  •  🧬   𝐋𝐘𝐍𝑿     :    `v{get_version()}`
+    {Bot_Alive._get_mode()}  |  🕔: {userge.uptime}
 """
         return alive_info
 
@@ -149,8 +148,8 @@ class Bot_Alive:
     def alive_buttons():
         buttons = [
             [
-                InlineKeyboardButton("SETTINGS", callback_data="settings_btn"),
-                InlineKeyboardButton(text="REPO", url=Config.UPSTREAM_REPO),
+                InlineKeyboardButton("🔧 SETTINGS", callback_data="settings_btn"),
+                InlineKeyboardButton(text="👾 REPO", url=Config.UPSTREAM_REPO),
             ]
         ]
         return InlineKeyboardMarkup(buttons)
