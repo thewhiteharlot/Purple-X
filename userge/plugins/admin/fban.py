@@ -119,7 +119,7 @@ async def fban_(message: Message):
         total += 1
         chat_id = int(data["chat_id"])
         try:
-            async with userge.conversation(chat_id, timeout=8) as conv:
+            async with userge.conversation(chat_id, timeout=12) as conv:
                 await conv.send_message(f"/fban {user} {reason}")
                 response = await conv.get_response(
                     mark_read=True,
@@ -143,7 +143,7 @@ async def fban_(message: Message):
     await message.edit(fban_arg[2])
 
     if len(failed) != 0:
-        status = f"Failed to fban in {len(failed)}/{total} feds.\n"
+        status = f"Failed to fban in {len(failed)}/{total} feds.(Reason updated?)\n"
         for i in failed:
             status += (
                 "• "
