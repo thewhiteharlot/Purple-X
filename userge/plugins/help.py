@@ -1,5 +1,4 @@
 import os
-import random
 import re
 from math import ceil
 from typing import Any, Callable, Dict, List, Union
@@ -24,13 +23,12 @@ from pyrogram.types import (
 )
 from youtubesearchpython import VideosSearch
 
-from userge import Config, Message, get_collection, get_version, userge, versions
-from userge.core.ext import RawClient
+from userge import Config, Message, get_collection, userge
 from userge.utils import get_file_id, get_response
 from userge.utils import parse_buttons as pb
 from userge.utils import rand_key, xbot
 
-from .bot.alive import check_media_link
+from .bot.alive import Bot_Alive
 from .bot.gogo import Anime
 from .bot.utube_inline import (
     download_button,
@@ -60,43 +58,27 @@ _CATEGORY = {
 SAVED_SETTINGS = get_collection("CONFIGS")
 REPO_X = InlineQueryResultArticle(
     title="Repo",
-    input_message_content=InputTextMessageContent("**Here's how to setup LYNX** "),
-    url="https://github.com/thewhiteharlot/PURPLE-X",
+    input_message_content=InputTextMessageContent("**Here's how to setup USERGE-X** "),
+    url="https://github.com/code-rgb/USERGE-X",
     description="Setup Your Own",
-    thumb_url="https://i.imgur.com/pQuABtc.jpg",
+    thumb_url="https://i.imgur.com/1xsOo9o.png",
     reply_markup=InlineKeyboardMarkup(
         [
             [
                 InlineKeyboardButton(
-                    "🔥 LYNX Repo", url="https://github.com/thewhiteharlot/PURPLE-X"
+                    "🔥 USERGE-X Repo", url="https://github.com/code-rgb/USERGE-X"
                 ),
                 InlineKeyboardButton(
-                    "🚀 Deploy LYNX",
+                    "🚀 Deploy USERGE-X",
                     url=(
                         "https://heroku.com/deploy?template="
-                        "https://github.com/thewhiteharlot/PURPLE-X/tree/alpha"
+                        "https://github.com/code-rgb/USERGE-X/tree/alpha"
                     ),
                 ),
             ]
         ]
     ),
 )
-# Thanks boi @FLAMEPOSEIDON
-ALIVE_IMGS = [
-    "https://telegra.ph/file/11123ef7dff2f1e19e79d.jpg",
-    "https://i.imgur.com/uzKdTXG.jpg",
-    "https://telegra.ph/file/6ecab390e4974c74c3764.png",
-    "https://telegra.ph/file/995c75983a6c0e4499b55.png",
-    "https://telegra.ph/file/86cc25c78ad667ca5e691.png",
-]
-
-
-def _get_mode() -> str:
-    if RawClient.DUAL_MODE:
-        return "↕️  **DUAL**"
-    if Config.BOT_TOKEN:
-        return "🤖  **BOT**"
-    return "👤  **USER**"
 
 
 async def _init() -> None:
@@ -106,7 +88,7 @@ async def _init() -> None:
 
 
 @userge.on_cmd(
-    "help", about={"header": "Guide to use LYNX commands"}, allow_channels=False
+    "help", about={"header": "Guide to use USERGE commands"}, allow_channels=False
 )
 async def helpme(
     message: Message,
@@ -183,7 +165,7 @@ if userge.has_bot:
             else:
                 user_dict = await userge.bot.get_user_dict(Config.OWNER_ID[0])
                 await c_q.answer(
-                    f"Only {user_dict['flname']} Can Access this...! Build Your LYNX",
+                    f"Only {user_dict['flname']} Can Access this...! Build Your USERGE-X",
                     show_alert=True,
                 )
 
@@ -232,7 +214,7 @@ if userge.has_bot:
             await callback_query.answer("you are in main menu", show_alert=True)
             return
         if len(pos_list) == 2:
-            text = " 𝗟𝗬𝗡𝗫 𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨"
+            text = " 𝐔𝐒𝐄𝐑𝐆𝐄-𝐗  𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨"
             buttons = main_menu_buttons()
         elif len(pos_list) == 3:
             text, buttons = category_data(cur_pos)
@@ -305,7 +287,7 @@ if userge.has_bot:
 
         await xbot.edit_inline_text(
             callback_query.inline_message_id,
-            text=" 𝗟𝗬𝗡𝗫 𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨 ",
+            text=" 𝐔𝐒𝐄𝐑𝐆𝐄-𝐗  𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨 ",
             reply_markup=InlineKeyboardMarkup(main_menu_buttons()),
         )
 
@@ -547,7 +529,7 @@ if userge.has_bot:
 
     async def get_alive_():
         global MEDIA_TYPE, MEDIA_URL
-        type_, media_ = await check_media_link(Config.ALIVE_MEDIA)
+        type_, media_ = await Bot_Alive.check_media_link(Config.ALIVE_MEDIA)
         if not media_:
             return
         MEDIA_TYPE = type_
@@ -571,6 +553,7 @@ if userge.has_bot:
 
     @userge.bot.on_inline_query()
     async def inline_answer(_, inline_query: InlineQuery):
+        global MEDIA_URL, MEDIA_TYPE
         results = []
         i_q = inline_query.query
         string = i_q.lower()  # All lower
@@ -722,27 +705,15 @@ if userge.has_bot:
             #     )
 
             if string == "alive":
-                buttons = [
-                    [
-                        InlineKeyboardButton(
-                            "🔧 SETTINGS", callback_data="settings_btn"
-                        ),
-                        InlineKeyboardButton(text="⚡️ REPO", url=Config.UPSTREAM_REPO),
-                    ]
-                ]
 
-                alive_info = f"""
-    **[LYNX](https://telegram.dog/x_xtests) is Up and Running**
+                alive_info = Bot_Alive.alive_info()
+                buttons = Bot_Alive.alive_buttons()
+                if Config.ALIVE_MEDIA:
+                    if Config.ALIVE_MEDIA.lower().strip() == "false":
+                        MEDIA_TYPE = "no_media"
 
- •  🐍  Python    :    `v{versions.__python_version__}`
- •  🔥    Pyro     :    `v{versions.__pyro_version__}`
- •  🧬   𝐋𝐘𝐍𝑿     :    `v{get_version()}`
-
-{_get_mode()}  |   🕔: {userge.uptime}
-"""
-
-                if not MEDIA_URL and Config.ALIVE_MEDIA:
-                    await get_alive_()
+                    elif MEDIA_URL is None:
+                        await get_alive_()
 
                 if MEDIA_URL:
                     if MEDIA_TYPE == "url_gif":
@@ -750,7 +721,7 @@ if userge.has_bot:
                             InlineQueryResultAnimation(
                                 animation_url=MEDIA_URL,
                                 caption=alive_info,
-                                reply_markup=InlineKeyboardMarkup(buttons),
+                                reply_markup=buttons,
                             )
                         )
                     elif MEDIA_TYPE == "url_image":
@@ -758,7 +729,7 @@ if userge.has_bot:
                             InlineQueryResultPhoto(
                                 photo_url=MEDIA_URL,
                                 caption=alive_info,
-                                reply_markup=InlineKeyboardMarkup(buttons),
+                                reply_markup=buttons,
                             )
                         )
                     elif MEDIA_TYPE == "tg_image":
@@ -766,26 +737,34 @@ if userge.has_bot:
                             InlineQueryResultCachedPhoto(
                                 file_id=MEDIA_URL,
                                 caption=alive_info,
-                                reply_markup=InlineKeyboardMarkup(buttons),
+                                reply_markup=buttons,
                             )
                         )
                     else:
                         results.append(
                             InlineQueryResultCachedDocument(
-                                title="LYNX",
+                                title="USERGE-X",
                                 file_id=MEDIA_URL,
                                 caption=alive_info,
                                 description="ALIVE",
-                                reply_markup=InlineKeyboardMarkup(buttons),
+                                reply_markup=buttons,
                             )
                         )
+                elif MEDIA_TYPE == "no_media":
+                    results.append(
+                        InlineQueryResultArticle(
+                            title="USERGE-X",
+                            input_message_content=InputTextMessageContent(alive_info),
+                            description="ALIVE",
+                            reply_markup=buttons,
+                        )
+                    )
                 else:  # default
-                    random_alive = random.choice(ALIVE_IMGS)
                     results.append(
                         InlineQueryResultPhoto(
-                            photo_url=random_alive,
+                            photo_url=Bot_Alive.alive_default_imgs(),
                             caption=alive_info,
-                            reply_markup=InlineKeyboardMarkup(buttons),
+                            reply_markup=buttons,
                         )
                     )
 
@@ -822,7 +801,7 @@ if userge.has_bot:
             if len(string_split) == 2 and (string_split[0] == "ofox"):
                 codename = string_split[1]
                 t = TelegraphPoster(use_api=True)
-                t.create_api_token("LYNX")
+                t.create_api_token("Userge-X")
                 photo = "https://i.imgur.com/582uaSk.png"
                 api_host = "https://api.orangefox.download/v2/device/"
                 try:
@@ -1213,10 +1192,10 @@ if userge.has_bot:
 
             MAIN_MENU = InlineQueryResultArticle(
                 title="Main Menu",
-                input_message_content=InputTextMessageContent(" 𝗟𝗬𝗡𝗫 𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨 "),
-                url="https://github.com/thewhiteharlot/PURPLE-X",
-                description="LYNX Main Menu",
-                thumb_url="https://i.imgur.com/pQuABtc.jpg",
+                input_message_content=InputTextMessageContent(" 𝐔𝐒𝐄𝐑𝐆𝐄-𝐗  𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨 "),
+                url="https://github.com/code-rgb/USERGE-X",
+                description="Userge-X Main Menu",
+                thumb_url="https://i.imgur.com/1xsOo9o.png",
                 reply_markup=InlineKeyboardMarkup(main_menu_buttons()),
             )
             results.append(MAIN_MENU)
