@@ -39,6 +39,7 @@ from .bot.utube_inline import (
 )
 from .fun.stylish import font_gen
 from .misc.redditdl import reddit_thumb_link
+from .utils.notes import get_inote
 
 CHANNEL = userge.getCLogger(__name__)
 MEDIA_TYPE, MEDIA_URL = None, None
@@ -58,21 +59,21 @@ _CATEGORY = {
 SAVED_SETTINGS = get_collection("CONFIGS")
 REPO_X = InlineQueryResultArticle(
     title="Repo",
-    input_message_content=InputTextMessageContent("**Here's how to setup LYNX** "),
-    url="https://github.com/thewhiteharlot/PURPLE-X",
+    input_message_content=InputTextMessageContent("**Here's how to setup USERGE-X** "),
+    url="https://github.com/code-rgb/USERGE-X",
     description="Setup Your Own",
-    thumb_url="https://i.imgur.com/pQuABtc.jpg",
+    thumb_url="https://i.imgur.com/1xsOo9o.png",
     reply_markup=InlineKeyboardMarkup(
         [
             [
                 InlineKeyboardButton(
-                    "🔥 LYNX Repo", url="https://github.com/thewhiteharlot/PURPLE-X"
+                    "🔥 USERGE-X Repo", url="https://github.com/code-rgb/USERGE-X"
                 ),
                 InlineKeyboardButton(
-                    "🚀 Deploy LYNX",
+                    "🚀 Deploy USERGE-X",
                     url=(
                         "https://heroku.com/deploy?template="
-                        "https://github.com/thewhiteharlot/PURPLE-X/tree/alpha"
+                        "https://github.com/code-rgb/USERGE-X/tree/alpha"
                     ),
                 ),
             ]
@@ -88,7 +89,7 @@ async def _init() -> None:
 
 
 @userge.on_cmd(
-    "help", about={"header": "Guide to use LYNX commands"}, allow_channels=False
+    "help", about={"header": "Guide to use USERGE commands"}, allow_channels=False
 )
 async def helpme(
     message: Message,
@@ -165,7 +166,7 @@ if userge.has_bot:
             else:
                 user_dict = await userge.bot.get_user_dict(Config.OWNER_ID[0])
                 await c_q.answer(
-                    f"Only {user_dict['flname']} Can Access this...! Build Your LYNX",
+                    f"Only {user_dict['flname']} Can Access this...! Build Your USERGE-X",
                     show_alert=True,
                 )
 
@@ -214,7 +215,7 @@ if userge.has_bot:
             await callback_query.answer("you are in main menu", show_alert=True)
             return
         if len(pos_list) == 2:
-            text = " 𝗟𝗬𝗡𝗫 𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨"
+            text = " 𝐔𝐒𝐄𝐑𝐆𝐄-𝐗  𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨"
             buttons = main_menu_buttons()
         elif len(pos_list) == 3:
             text, buttons = category_data(cur_pos)
@@ -287,7 +288,7 @@ if userge.has_bot:
 
         await xbot.edit_inline_text(
             callback_query.inline_message_id,
-            text=" 𝗟𝗬𝗡𝗫 𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨 ",
+            text=" 𝐔𝐒𝐄𝐑𝐆𝐄-𝐗  𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨 ",
             reply_markup=InlineKeyboardMarkup(main_menu_buttons()),
         )
 
@@ -705,16 +706,13 @@ if userge.has_bot:
             #     )
 
             if string == "alive":
-
                 alive_info = Bot_Alive.alive_info()
                 buttons = Bot_Alive.alive_buttons()
                 if Config.ALIVE_MEDIA:
                     if Config.ALIVE_MEDIA.lower().strip() == "false":
                         MEDIA_TYPE = "no_media"
-
                     elif MEDIA_URL is None:
                         await get_alive_()
-
                 if MEDIA_URL:
                     if MEDIA_TYPE == "url_gif":
                         results.append(
@@ -743,7 +741,7 @@ if userge.has_bot:
                     else:
                         results.append(
                             InlineQueryResultCachedDocument(
-                                title="LYNX",
+                                title="USERGE-X",
                                 file_id=MEDIA_URL,
                                 caption=alive_info,
                                 description="ALIVE",
@@ -753,8 +751,10 @@ if userge.has_bot:
                 elif MEDIA_TYPE == "no_media":
                     results.append(
                         InlineQueryResultArticle(
-                            title="LYNX",
-                            input_message_content=InputTextMessageContent(alive_info),
+                            title="USERGE-X",
+                            input_message_content=InputTextMessageContent(
+                                alive_info, disable_web_page_preview=True
+                            ),
                             description="ALIVE",
                             reply_markup=buttons,
                         )
@@ -775,6 +775,44 @@ if userge.has_bot:
                         caption="To defeat evil, I must become a greater evil",
                     )
                 )
+
+            if str_y[0] == "inotes" and len(str_y) == 2:
+                note_data = str_y[1].split("_", 2)
+                note_data = [int(x) for x in note_data]
+                if len(note_data) == 3:
+                    cnote = await get_inote(
+                        note_id=note_data[0], chat_id=note_data[1], user_id=note_data[2]
+                    )
+                    type_ = cnote.get("type")
+                    if type_ == "image":
+                        results.append(
+                            InlineQueryResultCachedPhoto(
+                                file_id=cnote.get("file_id"),
+                                caption=cnote.get("caption"),
+                                reply_markup=cnote.get("buttons"),
+                            )
+                        )
+                    elif type_ == "media":
+                        results.append(
+                            InlineQueryResultCachedDocument(
+                                title="Inline Note",
+                                file_id=cnote.get("file_id"),
+                                caption=cnote.get("caption"),
+                                description=f"#{note_data[0]}",
+                                reply_markup=cnote.get("buttons"),
+                            )
+                        )
+                    else:
+                        results.append(
+                            InlineQueryResultArticle(
+                                title="Inline Note",
+                                input_message_content=InputTextMessageContent(
+                                    cnote.get("caption"), disable_web_page_preview=True
+                                ),
+                                description=f"#{note_data[0]}",
+                                reply_markup=cnote.get("buttons"),
+                            )
+                        )
 
             if string == "gapps":
                 buttons = [
@@ -801,7 +839,7 @@ if userge.has_bot:
             if len(string_split) == 2 and (string_split[0] == "ofox"):
                 codename = string_split[1]
                 t = TelegraphPoster(use_api=True)
-                t.create_api_token("LYNX")
+                t.create_api_token("Userge-X")
                 photo = "https://i.imgur.com/582uaSk.png"
                 api_host = "https://api.orangefox.download/v2/device/"
                 try:
@@ -832,7 +870,6 @@ if userge.has_bot:
                     ]
                 else:
                     buttons = [[InlineKeyboardButton(text="⬇️ DOWNLOAD", url=s["url"])]]
-
                 results.append(
                     InlineQueryResultPhoto(
                         photo_url=photo,
@@ -939,7 +976,6 @@ if userge.has_bot:
 
             if str_x[0].lower() == "op" and len(str_x) > 1:
                 txt = i_q[3:]
-
                 opinion = os.path.join(PATH, "emoji_data.txt")
                 if os.path.exists(opinion):
                     with open(opinion) as fo:
@@ -949,10 +985,8 @@ if userge.has_bot:
                     view_data.update(new_id)
                 else:
                     view_data = {int(inline_query.id): [{}]}
-
                 with open(opinion, "w") as outfile:
                     ujson.dump(view_data, outfile)
-
                 buttons = [
                     [
                         InlineKeyboardButton(
@@ -974,12 +1008,10 @@ if userge.has_bot:
                 )
 
             if "btn_" in str_y[0] or str_y[0] == "btn":
-
                 inline_db_path = "./userge/xcache/inline_db.json"
                 if os.path.exists(inline_db_path):
                     with open(inline_db_path, "r") as data_file:
                         view_db = ujson.load(data_file)
-
                     data_count_n = 1
                     reverse_list = list(view_db)
                     reverse_list.reverse()
@@ -987,19 +1019,15 @@ if userge.has_bot:
                         if data_count_n > 15:
                             view_db.pop(butt_ons, None)
                         data_count_n += 1
-
                     with open(inline_db_path, "w") as data_file:
                         ujson.dump(view_db, data_file)
-
                     if str_y[0] == "btn":
                         inline_storage = list(view_db)
                     else:
                         rnd_id = (str_y[0].split("_", 1))[1]
                         inline_storage = [rnd_id]
-
                     if len(inline_storage) == 0:
                         return
-
                     for inline_content in inline_storage:
                         inline_db = view_db.get(inline_content)
                         if inline_db:
@@ -1011,9 +1039,7 @@ if userge.has_bot:
                                     Config.LOG_CHANNEL_ID, int(inline_db["media_id"])
                                 )
                                 media_data = get_file_id(saved_msg)
-
                             textx, buttonsx = pb(inline_db["msg_content"])
-
                             if inline_db["media_valid"]:
                                 if saved_msg.photo:
                                     results.append(
@@ -1044,52 +1070,49 @@ if userge.has_bot:
                                     )
                                 )
 
-            if str_y[0].lower() == "stylish":
-                if len(str_y) == 2:
-                    results = []
-                    input_text = str_y[1]
-                    font_names = [
-                        "serif",
-                        "sans",
-                        "sans_i",
-                        "serif_i",
-                        "medi_b",
-                        "medi",
-                        "double",
-                        "cursive_b",
-                        "cursive",
-                        "bigsmall",
-                        "reverse",
-                        "circle",
-                        "circle_b",
-                        "mono",
-                        "square_b",
-                        "square",
-                        "smoth",
-                        "goth",
-                        "wide",
-                        "web",
-                        "weeb",
-                        "weeeb",
-                    ]
-                    for f_name in font_names:
-                        styled_str = await font_gen(f_name, input_text)
-                        results.append(
-                            InlineQueryResultArticle(
-                                title=f_name.upper(),
-                                input_message_content=InputTextMessageContent(
-                                    styled_str
-                                ),
-                                description=styled_str,
-                            )
+            if str_y[0].lower() == "stylish" and len(str_y) == 2:
+                results = []
+                input_text = str_y[1]
+                font_names = [
+                    "serif",
+                    "sans",
+                    "sans_i",
+                    "serif_i",
+                    "medi_b",
+                    "medi",
+                    "double",
+                    "cursive_b",
+                    "cursive",
+                    "bigsmall",
+                    "reverse",
+                    "circle",
+                    "circle_b",
+                    "mono",
+                    "square_b",
+                    "square",
+                    "smoth",
+                    "goth",
+                    "wide",
+                    "web",
+                    "weeb",
+                    "weeeb",
+                ]
+                for f_name in font_names:
+                    styled_str = await font_gen(f_name, input_text)
+                    results.append(
+                        InlineQueryResultArticle(
+                            title=f_name.upper(),
+                            input_message_content=InputTextMessageContent(styled_str),
+                            description=styled_str,
                         )
-                    await inline_query.answer(
-                        results=results,
-                        cache_time=1,
-                        switch_pm_text="Available Commands",
-                        switch_pm_parameter="inline",
                     )
-                    return
+                await inline_query.answer(
+                    results=results,
+                    cache_time=1,
+                    switch_pm_text="Available Commands",
+                    switch_pm_parameter="inline",
+                )
+                return
 
             if str_x[0].lower() == "secret" and len(str_x) == 3:
                 user_name = str_x[1]
@@ -1192,10 +1215,10 @@ if userge.has_bot:
 
             MAIN_MENU = InlineQueryResultArticle(
                 title="Main Menu",
-                input_message_content=InputTextMessageContent(" 𝗟𝗬𝗡𝗫 𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨 "),
-                url="https://github.com/thewhiteharlot/PURPLE-X",
-                description="LYNX Main Menu",
-                thumb_url="https://i.imgur.com/pQuABtc.jpg",
+                input_message_content=InputTextMessageContent(" 𝐔𝐒𝐄𝐑𝐆𝐄-𝐗  𝗠𝗔𝗜𝗡 𝗠𝗘𝗡𝗨 "),
+                url="https://github.com/code-rgb/USERGE-X",
+                description="Userge-X Main Menu",
+                thumb_url="https://i.imgur.com/1xsOo9o.png",
                 reply_markup=InlineKeyboardMarkup(main_menu_buttons()),
             )
             results.append(MAIN_MENU)
