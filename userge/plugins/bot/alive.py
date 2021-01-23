@@ -131,7 +131,7 @@ class Bot_Alive:
 
   •  🐍  **Python**    :    `v{versions.__python_version__}`
   •  🔥    **Pyro**      :    `v{versions.__pyro_version__}`
-  •  🧬   𝐋𝐘𝐍𝑿     :    `v{get_version()}`
+  •  🧬   𝐋𝐘𝐍𝑿     :    `{get_version()}`
   •  **{Bot_Alive._get_mode()}**    |  🕔: {userge.uptime}
 """
         return alive_info
