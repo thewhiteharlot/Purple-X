@@ -139,7 +139,7 @@ class Bot_Alive:
     @staticmethod
     def _get_mode() -> str:
         if RawClient.DUAL_MODE:
-            return "↕️  DUAL"
+            return "↕️   DUAL"
         if Config.BOT_TOKEN:
             return "🤖  BOT"
         return "👤  USER"
