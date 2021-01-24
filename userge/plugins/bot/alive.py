@@ -78,6 +78,7 @@ async def alive_inline(message: Message):
         await asyncio.sleep(450)
         await userge.delete_messages(message.chat.id, y.updates[0].id)
 
+
 if userge.has_bot:
 
     @userge.bot.on_callback_query(filters.regex(pattern=r"^settings_btn$"))
