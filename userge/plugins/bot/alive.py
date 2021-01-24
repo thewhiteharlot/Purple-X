@@ -145,7 +145,7 @@ class Bot_Alive:
             return "🤖  BOT"
         return "👤  USER"
         user = await userge.get_me()
-        name = " ".join([user.first_name, user.last_name or ""])
+        " ".join([user.first_name, user.last_name or ""])
 
     @staticmethod
     def alive_buttons():
