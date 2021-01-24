@@ -123,8 +123,6 @@ class Bot_Alive:
                 message_id = match.group(3)
             link = [chat_id, int(message_id)]
         return link_type, link
-        user = await userge.get_me()
-        name = " ".join([user.first_name, user.last_name or ""])
 
     @staticmethod
     def alive_info():
@@ -143,8 +141,8 @@ class Bot_Alive:
         if RawClient.DUAL_MODE:
             return "↕️   DUAL"
         if Config.BOT_TOKEN:
-            return "🤖  BOT"
-        return "👤  USER"
+            return "🤖   BOT"
+        return "👤   USER"
 
     @staticmethod
     def alive_buttons():
