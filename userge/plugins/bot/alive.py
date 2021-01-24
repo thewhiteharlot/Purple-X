@@ -132,8 +132,13 @@ class Bot_Alive:
   •  🐍  **Python**    :    `v{versions.__python_version__}`
   •  🔥    **Pyro**      :    `v{versions.__pyro_version__}`
   •  🧬   𝐋𝐘𝐍𝑿     :    `{get_version()}`
+  •  👤    User      :    {name}
   •  **{Bot_Alive._get_mode()}**    |  🕔: {userge.uptime}
 """
+
+        user = await userge.get_me()
+        name = " ".join([user.first_name, user.last_name or ""])
+
         return alive_info
 
     @staticmethod
