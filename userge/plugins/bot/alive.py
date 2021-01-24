@@ -137,7 +137,7 @@ class Bot_Alive:
 """
 
         user = await userge.get_me()
-        name = " ".join([user.first_name, user.last_name or ""])
+        " ".join([user.first_name, user.last_name or ""])
 
         return alive_info
 
