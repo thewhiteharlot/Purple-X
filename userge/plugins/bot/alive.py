@@ -131,7 +131,7 @@ class Bot_Alive:
   •  🐍  **Python**    :    `v{versions.__python_version__}`
   •  🔥    **Pyro**      :    `v{versions.__pyro_version__}`
   •  🧬   𝐋𝐘𝐍𝑿     :    `{get_version()}`
-  •  👤    User      :    {first_name}
+  •  👤    User      :    {name}
   •  **{Bot_Alive._get_mode()}**    |  🕔: {userge.uptime}
 """
         return alive_info
@@ -164,3 +164,8 @@ class Bot_Alive:
             "https://telegra.ph/file/86cc25c78ad667ca5e691.png",
         ]
         return rand_array(alive_imgs)
+
+        async def user():
+    user = await userge.get_me()
+    name = " ".join([user.first_name, user.last_name or ""])
+        return f"{user.first_name}"
