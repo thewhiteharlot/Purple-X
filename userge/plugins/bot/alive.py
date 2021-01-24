@@ -77,8 +77,6 @@ async def alive_inline(message: Message):
         await message.delete()
         await asyncio.sleep(450)
         await userge.delete_messages(message.chat.id, y.updates[0].id)
-    user = await userge.get_me()
-    name = " ".join([user.first_name, user.last_name or ""])
 
 if userge.has_bot:
 
@@ -133,7 +131,7 @@ class Bot_Alive:
   •  🐍  **Python**    :    `v{versions.__python_version__}`
   •  🔥    **Pyro**      :    `v{versions.__pyro_version__}`
   •  🧬   𝐋𝐘𝐍𝑿     :    `{get_version()}`
-  •  👤    User      :    {name}
+  •  👤    User      :    {first_name}
   •  **{Bot_Alive._get_mode()}**    |  🕔: {userge.uptime}
 """
         return alive_info
