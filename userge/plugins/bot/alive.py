@@ -124,7 +124,7 @@ class Bot_Alive:
             link = [chat_id, int(message_id)]
         return link_type, link
         user = await userge.get_me()
-        name = " ".join([user.first_name, user.last_name or ""])
+        " ".join([user.first_name, user.last_name or ""])
 
     @staticmethod
     def alive_info():
