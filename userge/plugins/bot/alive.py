@@ -154,13 +154,13 @@ class Bot_Alive:
     @staticmethod
     def alive_info():
         alive_info = f"""
-<a href="https://telegram.dog/x_xtests"><b>USERGE-X</a> is Up and Running.</b>
+    **[LYNX](https://telegram.dog/x_xtests) is Up and Running.**
 
-  🐍   <b>Python :</b>    <code>v{versions.__python_version__}</code>
-  🔥   <b>Pyrogram :</b>    <code>v{versions.__pyro_version__}</code>
-  🧬   <b>𝑿 :</b>    <code>v{get_version()}</code>
+  •  🐍  **Python**    :    `v{versions.__python_version__}`
+  •  🔥    **Pyro**      :    `v{versions.__pyro_version__}`
+  •  🧬   𝐋𝐘𝐍𝑿     :    `{get_version()}`
+  •  <b>{Bot_Alive._get_mode()}</b>    <code>|</code>    🕔  <b>{userge.uptime}</b>
 
-<b>{Bot_Alive._get_mode()}</b>    <code>|</code>    🕔  <b>{userge.uptime}</b>
 """
         return alive_info
 
