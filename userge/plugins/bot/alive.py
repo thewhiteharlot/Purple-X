@@ -15,7 +15,7 @@ from userge.utils import get_file_id, rand_array
 CACHED_MEDIA = None
 
 
-@userge.on_cmd("alive", about={"header": "Just For Fun"}, allow_channels=False)
+@userge.on_cmd("alive", about={"header": "Show bot status"}, allow_channels=False)
 async def alive_inline(message: Message):
     global CACHED_MEDIA
     if message.client.is_bot:
