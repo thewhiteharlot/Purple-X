@@ -785,7 +785,7 @@ async def hack_func(message):
         "Hacking... 36%\n[█████████▒▒▒▒▒▒▒▒▒▒▒▒▒]\n`WHOIS/TCP port open [43]...`\n",
         "Hacking... 52%\n[█████████████▒▒▒▒▒▒▒▒▒]\n`Private port open [65534]...`\n",
         "Hacking... 70%\n[█████████████████▒▒▒▒▒]\n`Starting Hashcat...`\n",
-        "Hacking... 88%\n[█████████████████████▒]\n`User pass[encrypted]:13S1CCeQtXqvTVvzkgnSMSrPL5qQfnt4XpEWMr6SpZs=...`\n",
+        "Hacking... 88%\n[█████████████████████▒]\n`User pass[encrypted]:13S1CCeQtXqvTVvzkgnSMSrPL5qQfnt4XpEWMr6SpZs=`\n",
         "Hacking... 100%\n[███████████████████████]\n`Uploading encrypted data...`\n",
         "Preparing Data... 1%\n[▒██████████████████████]\n`Trying to Decrypt [1/65]...`\n",
         "Preparing Data... 14%\n[████▒██████████████████]\n`Trying to Decrypt [9/65]...`\n",
@@ -794,7 +794,6 @@ async def hack_func(message):
         "Preparing Data... 72%\n[████████████████▒██████]\n`Attesting connection...`\n",
         "Preparing Data... 88%\n[████████████████████▒██]\n`Trying to connect...`\n",
         "Prepared Data... 100%\n[███████████████████████]\n`Telegram SMS code authenticated...`\n",
-        "Uploading Data to Server... 12%\n[███▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒]\n`Uploading userdata to localhost...`\n",
         "Uploading Data to Server... 44%\n[█████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒]\n`Uploading userdata to localhost...`\n",
         "Uploading Data to Server... 68%\n[███████████████▒▒▒▒▒▒▒▒]\n`Scanning files...`\n",
         "Uploading Data to Server... 89%\n[████████████████████▒▒▒]\n`Scanning files...`\n",
@@ -808,7 +807,7 @@ async def hack_func(message):
     )
     max_ani = len(animation_chars)
     for i in range(max_ani):
-        await asyncio.sleep(3)
+        await asyncio.sleep(2)
         await message.edit(animation_chars[i % max_ani])
     await message.edit(hecked)
 
