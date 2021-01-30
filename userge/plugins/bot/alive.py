@@ -155,7 +155,7 @@ class Bot_Alive:
 
     @staticmethod
     def alive_info(me):
-        user = " ".join([me.first_name, me.last_name or ""])
+        user = " ".join([me.first_name or ""])
         alive_info = f"""
     **[LYNX](https://telegram.dog/x_xtests) is Up and Running.**
 
