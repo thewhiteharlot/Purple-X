@@ -17,6 +17,7 @@ CACHED_MEDIA = None
 
 @userge.on_cmd("alive", about={"header": "Show bot status"}, allow_channels=False)
 async def alive_inline(message: Message):
+    me = await userge.get_me()
     global CACHED_MEDIA
     if message.client.is_bot:
         if Config.ALIVE_MEDIA:
@@ -24,7 +25,7 @@ async def alive_inline(message: Message):
             if url_.lower() == "false":
                 await userge.bot.send_message(
                     message.chat.id,
-                    Bot_Alive.alive_info(),
+                    Bot_Alive.alive_info(me),
                     reply_markup=Bot_Alive.alive_buttons(),
                     disable_web_page_preview=True,
                 )
@@ -34,14 +35,14 @@ async def alive_inline(message: Message):
                     await userge.bot.send_animation(
                         message.chat.id,
                         animation=url_,
-                        caption=Bot_Alive.alive_info(),
+                        caption=Bot_Alive.alive_info(me),
                         reply_markup=Bot_Alive.alive_buttons(),
                     )
                 elif type_ == "url_image":
                     await userge.bot.send_photo(
                         message.chat.id,
                         photo=url_,
-                        caption=Bot_Alive.alive_info(),
+                        caption=Bot_Alive.alive_info(me),
                         reply_markup=Bot_Alive.alive_buttons(),
                     )
                 elif type_ == "tg_media" and isinstance(media_, list):
@@ -56,14 +57,14 @@ async def alive_inline(message: Message):
                     await userge.bot.send_cached_media(
                         message.chat.id,
                         file_id=CACHED_MEDIA,
-                        caption=Bot_Alive.alive_info(),
+                        caption=Bot_Alive.alive_info(me),
                         reply_markup=Bot_Alive.alive_buttons(),
                     )
         else:
             await userge.bot.send_photo(
                 message.chat.id,
                 photo=Bot_Alive.alive_default_imgs(),
-                caption=Bot_Alive.alive_info(),
+                caption=Bot_Alive.alive_info(me),
                 reply_markup=Bot_Alive.alive_buttons(),
             )
     else:
@@ -84,6 +85,7 @@ if userge.has_bot:
 
     @userge.bot.on_callback_query(filters.regex(pattern=r"^settings_btn$"))
     async def alive_cb(_, c_q: CallbackQuery):
+        me = await userge.get_me()
         allow = bool(
             c_q.from_user
             and (
@@ -95,7 +97,7 @@ if userge.has_bot:
             start = datetime.now()
             try:
                 await c_q.edit_message_text(
-                    Bot_Alive.alive_info(),
+                    Bot_Alive.alive_info(me),
                     reply_markup=Bot_Alive.alive_buttons(),
                     disable_web_page_preview=True,
                 )
@@ -152,13 +154,15 @@ class Bot_Alive:
         return link_type, link
 
     @staticmethod
-    def alive_info():
+    def alive_info(me):
+        user = " ".join([me.first_name, me.last_name or ""])
         alive_info = f"""
     **[LYNX](https://telegram.dog/x_xtests) is Up and Running.**
 
   •  🐍  **Python**    :    `v{versions.__python_version__}`
   •  🔥    **Pyro**      :    `v{versions.__pyro_version__}`
   •  🧬   𝐋𝐘𝐍𝑿     :    `{get_version()}`
+  •  👤   **User**     :    `{user}`
   •  <b>{Bot_Alive._get_mode()}</b>    <code>|</code>    🕔  <b>{userge.uptime}</b>
 
 """
