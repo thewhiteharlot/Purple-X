@@ -195,7 +195,7 @@ async def upload_image_grp(results, message: Message, doc: bool = False):
             [
                 (InputMediaDocument(media=x) if doc else InputMediaPhoto(media=x))
                 for x in medias_
-                if x.endswith(".jpg")
+                if x.endswith((".jpg", ".jpeg", ".png", ".bmp"))
             ],
             width=10,
         )
@@ -205,6 +205,6 @@ async def upload_image_grp(results, message: Message, doc: bool = False):
                     f"⬆️  Uploading - **{round(num / len(mgroups) * 100)} %** ..."
                 )
                 await message.client.send_media_group(message.chat.id, media=m_)
-                await asyncio.sleep(5)
+                await asyncio.sleep(len(m_))
             except FloodWait as f:
-                await asyncio.sleep(f.x + 3)
+                await asyncio.sleep(f.x + 5)
