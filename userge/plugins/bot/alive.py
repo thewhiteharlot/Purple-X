@@ -161,12 +161,12 @@ class Bot_Alive:
 
   <b> ➖➖➖➖➖➖➖ </b>
   🐍  <b>| Python :</b>    <code>v{versions.__python_version__}</code>
-  🔥  <b>| Pyro       :<b>    <code>v{versions.__pyro_version__}</code>
-  👤  <b>| User       :<b>    <code>{user}</code>
+  🔥  <b>| Pyro       :</b>    <code>v{versions.__pyro_version__}</code>
+  👤  <b>| User       :</b>    <code>{user}</code>
 
-  🧬 | 𝐋𝐘𝐍𝑿        :    <code>{get_version()}</code>
+  🧬 | 𝑳𝒀𝑵𝑿        :    <code>{get_version()}</code>
   <b> ➖➖➖➖➖➖➖ </b>
-   {Bot_Alive._get_mode()} <code>|</code> 🕔 {userge.uptime}
+   {Bot_Alive._get_mode()}  <b>|</b>  🕔 {userge.uptime}
 
 """
         return alive_info

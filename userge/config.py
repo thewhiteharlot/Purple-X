@@ -113,7 +113,7 @@ def get_version() -> str:
         if "/thewhiteharlot/purple-x" in Config.UPSTREAM_REPO.lower():
             diff = list(_REPO.iter_commits(f'v{ver}..HEAD'))
             if diff:
-                return f"AMETHYST v{len(diff)}"
+                return f"{ver}-ASTER.{len(diff)}"
         else:
             diff = list(_REPO.iter_commits(f'{Config.UPSTREAM_REMOTE}/alpha..HEAD'))
             if diff:
