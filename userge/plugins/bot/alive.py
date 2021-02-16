@@ -157,13 +157,16 @@ class Bot_Alive:
     def alive_info(me):
         user = " ".join([me.first_name or ""])
         alive_info = f"""
-    **[LYNX](https://telegram.dog/x_xtests) is Up and Running.**
+    <b>[LYNX](https://telegram.dog/x_xtests) is Up and Running.</b>
 
-  •  🐍  **Python**    :    `v{versions.__python_version__}`
-  •  🔥    **Pyro**      :    `v{versions.__pyro_version__}`
-  •  🧬    𝑳𝒀𝑵𝑿    :    `{get_version()}`
-  •  👤   **User**     :    `{user}`
-  •  <b>{Bot_Alive._get_mode()}</b>    <code>|</code>    🕔  <b>{userge.uptime}</b>
+  <b> ➖➖➖➖➖➖➖ </b>
+  🐍  <b>| Python :</b>    <code>v{versions.__python_version__}</code>
+  🔥  <b>| Pyro       :<b>    <code>v{versions.__pyro_version__}</code>
+  👤  <b>| User       :<b>    <code>{user}</code>
+
+  🧬 | 𝐋𝐘𝐍𝑿        :    <code>{get_version()}</code>
+  <b> ➖➖➖➖➖➖➖ </b>
+   {Bot_Alive._get_mode()} <code>|</code> 🕔 {userge.uptime}
 
 """
         return alive_info
@@ -171,10 +174,10 @@ class Bot_Alive:
     @staticmethod
     def _get_mode() -> str:
         if RawClient.DUAL_MODE:
-            return "↕️   DUAL"
+            return "♾  DUAL"
         if Config.BOT_TOKEN:
-            return "🤖   BOT"
-        return "👤   USER"
+            return "🤖  BOT"
+        return "👤  USER"
 
     @staticmethod
     def alive_buttons():
