@@ -92,7 +92,7 @@ class Config:
     SPOTIFY_CLIENT_ID = os.environ.get('SPOTIFY_CLIENT_ID')
     SPOTIFY_CLIENT_SECRET = os.environ.get('SPOTIFY_CLIENT_SECRET')
     SPOTIFY_MODE = False
-    ### MEME Generator 
+    ### MEME Generator
     IMGFLIP_ID = os.environ.get('IMGFLIP_ID')
     IMGFLIP_PASS = os.environ.get('IMGFLIP_PASS')
     ALLOW_NSFW = os.environ.get("ALLOW_NSFW", "False")
