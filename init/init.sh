@@ -19,9 +19,9 @@ trap 'echo hi' USR1
 initUserge() {
     printLogo
     assertPrerequisites
-    sendMessage "Initializing LYNX ..."
+    sendMessage "Initializing USERGE-X ..."
     assertEnvironment
-    editLastMessage "Starting LYNX ..."
+    editLastMessage "Starting USERGE-X ..."
     printLine
 }
 
@@ -31,7 +31,7 @@ startUserge() {
 }
 
 stopUserge() {
-    sendMessage "Exiting LYNX ..."
+    sendMessage "Exiting USERGE-X ..."
     endLogBotPolling
 }
 

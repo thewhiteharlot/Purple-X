@@ -93,7 +93,7 @@ class Config:
     SPOTIFY_CLIENT_ID = os.environ.get('SPOTIFY_CLIENT_ID')
     SPOTIFY_CLIENT_SECRET = os.environ.get('SPOTIFY_CLIENT_SECRET')
     SPOTIFY_MODE = False
-    ### MEME Generator
+    ### MEME Generator 
     IMGFLIP_ID = os.environ.get('IMGFLIP_ID')
     IMGFLIP_PASS = os.environ.get('IMGFLIP_PASS')
     ALLOW_NSFW = os.environ.get("ALLOW_NSFW", "False")
@@ -111,15 +111,15 @@ def get_version() -> str:
     """ get USERGE-X version """
     ver = f"{versions.__major__}.{versions.__minor__}.{versions.__micro__}"
     try:
-        if "/thewhiteharlot/purple-x" in Config.UPSTREAM_REPO.lower():
+        if "/code-rgb/userge-x" in Config.UPSTREAM_REPO.lower():
             diff = list(_REPO.iter_commits(f'v{ver}..HEAD'))
             if diff:
-                return f"{ver}-ASTER.{len(diff)}"
+                return f"{ver}-LOGAN.{len(diff)}"
         else:
             diff = list(_REPO.iter_commits(f'{Config.UPSTREAM_REMOTE}/alpha..HEAD'))
             if diff:
-                return f"{ver}-PURPLE-[X].{len(diff)}"
+                return f"{ver}-fork-[X].{len(diff)}"
     except Exception as e:
         _LOG.error(e)
-        return "Check Update"
+        return " Check Update"
     return ver

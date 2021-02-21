@@ -20,4 +20,4 @@ async def _worker() -> None:
 
 if __name__ == "__main__":
     userge.begin(_worker())
-    print('LYNX test has been finished!')
+    print('USERGE-X test has been finished!')

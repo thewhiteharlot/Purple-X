@@ -1,9 +1,9 @@
 {
-    "name":"LYNX",
+    "name":"USERGE-X",
     "description":"telegram pluggable userbot",
     "logo":"https://i.imgur.com/PlXD0aL.png",
     "keywords":[
-        "LYNX",
+        "USERGE-X",
         "Pyrogram",
         "Telegram",
         "pluggable",
@@ -11,8 +11,8 @@
         "Userbot",
         "Inline"
     ],
-    "repository":"https://github.com/thewhiteharlot/PURPLE-X",
-    "website":"https://github.com/thewhiteharlot/PURPLE-X",
+    "repository":"https://github.com/code-rgb/USERGE-X",
+    "website":"https://github.com/code-rgb/USERGE-X",
     "success_url":"https://t.me/userge_x",
     "env":{
         "API_ID":{
