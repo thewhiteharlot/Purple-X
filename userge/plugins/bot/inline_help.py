@@ -54,6 +54,10 @@ COMMANDS = {
         "help_txt": "**Write it in Style**\nplugin to decorate text with unicode fonts.\n\n>>>  `stylish [text]`",
         "i_q": "stylish LYNX",
     },
+    "ytdl": {
+        "help_txt": f"**Download YouTube Videos or Audio with Buttons**\nTo Download Video / Audio from youtube with desired quality.\n\n>>>  `ytdl [URL or Text]\n   Non-Inline: {Config.CMD_TRIGGER}iytdl [URL / Text] or [Reply to URL / Text]`",
+        "i_q": "ytdl https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    },
     "spoiler": {
         "help_txt": "**Send Saved Spoiler Via Inline**\n For more info see `.help spoiler`\n\n>>>  `spoiler [ID]`",
         "i_q": "spoiler",
