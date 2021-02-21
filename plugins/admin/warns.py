@@ -1,4 +1,4 @@
-"""USERGE-X Module to handle warns"""
+"""LYNX Module to handle warns"""
 
 
 # This program is distributed in the hope that it will be useful,
@@ -8,7 +8,7 @@
 #
 # Heavily Inspired By Sophie_Bot [https://sophiebot.rocks/]
 #
-# Copyright (C) 2020 BY USERGE-X
+# Copyright (C) 2020 BY LYNX
 # All rights reserved.
 # Author: Github/code-rgb [TG- @deleteduser420]
 

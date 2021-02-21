@@ -1,1 +1,1 @@
-USERGE-X Cache Folder
+LYNX Cache Folder

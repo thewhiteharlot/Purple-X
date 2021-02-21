@@ -1,7 +1,7 @@
 """Plugin to manage federations"""
 # Author: Copyright (C) 2020 KenHV [https://github.com/KenHV]
 
-# For USERGE-X
+# For LYNX
 # Ported to Pyrogram + Rewrite with Mongo DB
 # by: (TG - @DeletedUser420) [https://github.com/code-rgb]
 # Thanks @Lostb053  for writing help

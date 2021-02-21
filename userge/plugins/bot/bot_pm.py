@@ -46,7 +46,7 @@ if userge.has_bot:
 Hello {f_name},
 Nice To Meet You! I'm **{bot.first_name}** A Bot.
 
-        <i><b>Powered by</i> [USERGE-X](https://t.me/x_xtests)</b>
+        <i><b>Powered by</i> [LYNX](https://t.me/x_xtests)</b>
 
 <b>My Master is: {master.first_name}</b>
 <i>You can contact my <b>Master</b> and checkout the <b>Repo</b> For more info.</i>
@@ -132,7 +132,7 @@ Nice To Meet You! I'm **{bot.first_name}** A Bot.
                         [
                             InlineKeyboardButton("CONTACT", url=f"t.me/{u_n}"),
                             InlineKeyboardButton(
-                                "REPO", url="https://github.com/code-rgb/USERGE-X"
+                                "REPO", url="https://github.com/thewhiteharlot/Purple-X"
                             ),
                         ],
                         [

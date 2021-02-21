@@ -23,7 +23,7 @@ COMMANDS = {
         "i_q": "troll @Lostb053 Lostboy can view this message",
     },
     "alive": {
-        "help_txt": "**Alive Command for USERGE-X**\nHere You can view Uptime, Setting and Versions of your bot and when you change settings they are updated in Real-time UwU\n\n>>>  `alive`",
+        "help_txt": "**Alive Command for LYNX**\nHere You can view Uptime, Setting and Versions of your bot and when you change settings they are updated in Real-time UwU\n\n>>>  `alive`",
         "i_q": "alive",
     },
     "opinion": {
@@ -31,7 +31,7 @@ COMMANDS = {
         "i_q": "op Are Cats Cute ?",
     },
     "repo": {
-        "help_txt": "**Your USERGE-X Github repo**\nwith direct deploy button\n\n>>>  `repo`",
+        "help_txt": "**Your LYNX Github repo**\nwith direct deploy button\n\n>>>  `repo`",
         "i_q": "repo",
     },
     "gapps": {
@@ -52,7 +52,7 @@ COMMANDS = {
     },
     "stylish": {
         "help_txt": "**Write it in Style**\nplugin to decorate text with unicode fonts.\n\n>>>  `stylish [text]`",
-        "i_q": "stylish USERGE-X",
+        "i_q": "stylish LYNX",
     },
     "ytdl": {
         "help_txt": f"**Download YouTube Videos or Audio with Buttons**\nTo Download Video / Audio from youtube with desired quality.\n\n>>>  `ytdl [URL or Text]\n   Non-Inline: {Config.CMD_TRIGGER}iytdl [URL / Text] or [Reply to URL / Text]`",

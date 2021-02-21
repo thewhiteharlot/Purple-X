@@ -108,10 +108,10 @@ class Config:
 
 
 def get_version() -> str:
-    """ get USERGE-X version """
+    """ get LYNX version """
     ver = f"{versions.__major__}.{versions.__minor__}.{versions.__micro__}"
     try:
-        if "/code-rgb/userge-x" in Config.UPSTREAM_REPO.lower():
+        if "/thewhiteharlot/Purple-X" in Config.UPSTREAM_REPO.lower():
             diff = list(_REPO.iter_commits(f'v{ver}..HEAD'))
             if diff:
                 return f"{ver}-LOGAN.{len(diff)}"

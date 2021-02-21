@@ -26,8 +26,8 @@ _LOG_STR = "<<<!  #####  %s  #####  !>>>"
 class Restart(RawClient):  # pylint: disable=missing-class-docstring
     async def restart(self, update_req: bool = False,  # pylint: disable=arguments-differ
                       hard: bool = False) -> None:
-        """ Restart the Abstract USERGE-X"""
-        _LOG.info(_LOG_STR, "Restarting USERGE-X")
+        """ Restart the Abstract LYNX"""
+        _LOG.info(_LOG_STR, "Restarting LYNX")
         await self.stop()
         if update_req:
             _LOG.info(_LOG_STR, "Installing Requirements...")

@@ -1,7 +1,7 @@
 # Source: https://gist.github.com/weihanglo/1e754ec47fdd683a42fdf6a272904535
 
 #  Author 2020 𝚂𝚢𝚗𝚝𝚊𝚡 ░ Σrr♢r <https://github.com/code-rgb>
-# For USERGE-X
+# For LYNX
 
 import os
 import random
@@ -14,7 +14,7 @@ from userge import Config, Message, userge
 @userge.on_cmd(
     "x",
     about={
-        "header": "USERGE-X",
+        "header": "LYNX",
         "flags": {"-alt": "To get inverted X", "-ghost": "spooky ghost"},
     },
     check_downpath=True,

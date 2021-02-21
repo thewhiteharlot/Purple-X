@@ -1,4 +1,4 @@
-# https://www.codefactor.io/repository/github/code-rgb/userge-x/source/alpha/userge/plugins/utils/header.py#L1
+# https://www.codefactor.io/repository/github/thewhiteharlot/Purple-X/source/alpha/userge/plugins/utils/header.py#L1
 
 import requests
 

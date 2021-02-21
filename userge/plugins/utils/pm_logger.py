@@ -1,6 +1,6 @@
 """PM Logger"""
 
-# Copyright (C) 2020 BY USERGE-X
+# Copyright (C) 2020 BY LYNX
 # All rights reserved.
 # Author : GitHub.com/code-rgb [TG - @deleteduser420]
 
@@ -135,7 +135,7 @@ async def pm_logger(_, message: Message):
     about={
         "header": "Enable / Disable PM Logging For a specific User",
         "description": "Stop logging incomming pms from a user"
-        " USERGE-X will not interfere or handle such private chats",
+        " LYNX will not interfere or handle such private chats",
         "usage": "{tr}pmlog [username | userID]\nreply {tr}pmlog to a message,"
         " do {tr}pmlog in the private chat",
     },

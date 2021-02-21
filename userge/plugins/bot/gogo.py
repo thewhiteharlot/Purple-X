@@ -1,6 +1,6 @@
 """Download Anime"""
 
-# For USERGE-X
+# For LYNX
 # (C) 2021 All Rights Reserved
 # Idea by: [TG: @Lostb053]
 # Author: (github.com/code-rgb) [TG: @DeletedUser420]
