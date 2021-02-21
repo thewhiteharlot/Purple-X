@@ -50,10 +50,10 @@ _checkDefaultVars() {
         [WORKERS]=0
         [PREFERRED_LANGUAGE]="en"
         [DOWN_PATH]="downloads"
-        [UPSTREAM_REMOTE]="upstream"        
-        [UPSTREAM_REPO]="https://github.com/code-rgb/USERGE-X"
+        [UPSTREAM_REMOTE]="upstream"
+        [UPSTREAM_REPO]="https://github.com/thewhiteharlot/Purple-X"
         [LOAD_UNOFFICIAL_PLUGINS]=false
-        [CUSTOM_PLUGINS_REPO]=""
+        [CUSTOM_PLUGINS_REPO]="https://github.com/thewhiteharlot/Userge-Plugins"
         [G_DRIVE_IS_TD]=true
         [CMD_TRIGGER]="."
         [SUDO_TRIGGER]="!"
@@ -190,7 +190,7 @@ _setupPlugins() {
 }
 
 _checkUnoffPlugins() {
-    _setupPlugins Xtra true $LOAD_UNOFFICIAL_PLUGINS https://github.com/code-rgb/Userge-Plugins.git
+    _setupPlugins Xtra true $LOAD_UNOFFICIAL_PLUGINS https://github.com/thewhiteharlot/Userge-Plugins.git
 }
 
 _checkCustomPlugins() {
