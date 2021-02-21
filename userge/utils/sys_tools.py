@@ -23,8 +23,6 @@ _SECURE = [
     "DATABASE_URL",
     "HEROKU_API_KEY",
     # others
-    "INSTA_ID",
-    "INSTA_PASS",
     "SPAM_WATCH_API",
     "CURRENCY_API",
     "OCR_SPACE_API_KEY",
