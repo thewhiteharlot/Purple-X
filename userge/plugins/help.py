@@ -21,7 +21,6 @@ from pyrogram.types import (
     InlineQueryResultPhoto,
     InputTextMessageContent,
 )
-from youtubesearchpython import VideosSearch
 
 from userge import Config, Message, get_collection, userge
 from userge.core.ext import RawClient
@@ -31,13 +30,6 @@ from userge.utils import rand_key
 
 from .bot.alive import Bot_Alive
 from .bot.gogo import Anime
-from .bot.utube_inline import (
-    download_button,
-    get_yt_video_id,
-    get_ytthumb,
-    result_formatter,
-    ytsearch_data,
-)
 from .fun.stylish import font_gen
 from .misc.redditdl import reddit_thumb_link
 from .utils.notes import get_inote
@@ -51,10 +43,11 @@ _CATEGORY = {
     "misc": "🧩",
     "tools": "🧰",
     "utils": "🗂",
-    "unofficial": "➕",
+    "xtra": "➕",
     "temp": "♻️",
     "plugins": "💎",
     "bot": "💠",
+    "custom": "🔧",
 }
 # Database
 SAVED_SETTINGS = get_collection("CONFIGS")
@@ -1118,65 +1111,6 @@ if userge.has_bot:
                         reply_markup=InlineKeyboardMarkup(buttons),
                     )
                 )
-
-            if str_y[0].lower() == "ytdl" and len(str_y) == 2:
-                link = get_yt_video_id(str_y[1].strip())
-                found_ = True
-                if link is None:
-                    search = VideosSearch(str_y[1].strip(), limit=15)
-                    resp = (search.result()).get("result")
-                    if len(resp) == 0:
-                        found_ = False
-                    else:
-                        outdata = await result_formatter(resp)
-                        key_ = rand_key()
-                        ytsearch_data.store_(key_, outdata)
-                        buttons = InlineKeyboardMarkup(
-                            [
-                                [
-                                    InlineKeyboardButton(
-                                        text=f"1 / {len(outdata)}",
-                                        callback_data=f"ytdl_next_{key_}_1",
-                                    )
-                                ],
-                                [
-                                    InlineKeyboardButton(
-                                        text="📜  List all",
-                                        callback_data=f"ytdl_listall_{key_}_1",
-                                    ),
-                                    InlineKeyboardButton(
-                                        text="⬇️  Download",
-                                        callback_data=f'ytdl_download_{outdata[1]["video_id"]}_0',
-                                    ),
-                                ],
-                            ]
-                        )
-                        caption = outdata[1]["message"]
-                        photo = outdata[1]["thumb"]
-                else:
-                    caption, buttons = await download_button(link, body=True)
-                    photo = await get_ytthumb(link)
-
-                if found_:
-                    results.append(
-                        InlineQueryResultPhoto(
-                            photo_url=photo,
-                            title=link,
-                            description="⬇️ Click to Download",
-                            caption=caption,
-                            reply_markup=buttons,
-                        )
-                    )
-                else:
-                    results.append(
-                        InlineQueryResultArticle(
-                            title="not Found",
-                            input_message_content=InputTextMessageContent(
-                                f"No Results found for `{str_y[1]}`"
-                            ),
-                            description="INVALID",
-                        )
-                    )
 
             MAIN_MENU = InlineQueryResultArticle(
                 title="Main Menu",
