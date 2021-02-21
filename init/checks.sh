@@ -52,7 +52,7 @@ _checkDefaultVars() {
         [DOWN_PATH]="downloads"
         [UPSTREAM_REMOTE]="upstream"
         [UPSTREAM_REPO]="https://github.com/thewhiteharlot/Purple-X"
-        [LOAD_UNOFFICIAL_PLUGINS]=false
+        [LOAD_UNOFFICIAL_PLUGINS]=true
         [CUSTOM_PLUGINS_REPO]="https://github.com/thewhiteharlot/Userge-Plugins"
         [G_DRIVE_IS_TD]=true
         [CMD_TRIGGER]="."
