@@ -34,7 +34,7 @@ allowAllFilter = filters.create(lambda _, __, ___: Config.ALLOW_ALL_PMS)
     "pm_logger",
     about={
         "header": "enable / disable PM Logger\n\n"
-        "Note: Pm logging will only work if Pm Gaurd is Enabled"
+        "Note: Pm logging will only work if Pm Guard is Enabled"
     },
     allow_channels=False,
 )

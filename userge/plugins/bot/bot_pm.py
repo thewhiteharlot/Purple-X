@@ -44,7 +44,7 @@ if userge.has_bot:
         u_n = master.username
         hello = f"""
 Hello {f_name},
-Nice To Meet You! I'm **{bot.first_name}** A Bot.
+Nice To Meet You! I'm **{bot.first_name}**, a bot.
 
         <i><b>Powered by</i> [LYNX](https://t.me/x_xtests)</b>
 
@@ -162,7 +162,7 @@ Nice To Meet You! I'm **{bot.first_name}** A Bot.
             )
         else:
             await callback_query.answer(
-                "ONLY MY MASTER CAN DO THAT ! \n\n 𝘿𝙚𝙥𝙡𝙤𝙮 𝙮𝙤𝙪𝙧 𝙤𝙬𝙣 𝙐𝙎𝙀𝙍𝙂𝙀-𝙓 !",
+                "ONLY MY MASTER CAN DO THAT ! \n\n 𝘿𝙚𝙥𝙡𝙤𝙮 𝙮𝙤𝙪𝙧 𝙤𝙬𝙣 𝙇𝙔𝙉𝙓 !",
                 show_alert=True,
             )
 

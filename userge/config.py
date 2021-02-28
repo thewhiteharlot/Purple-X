@@ -114,11 +114,11 @@ def get_version() -> str:
         if "/thewhiteharlot/Purple-X" in Config.UPSTREAM_REPO.lower():
             diff = list(_REPO.iter_commits(f'v{ver}..HEAD'))
             if diff:
-                return f"{ver}-LOGAN.{len(diff)}"
+                return f"{ver}-ASTER.{len(diff)}"
         else:
             diff = list(_REPO.iter_commits(f'{Config.UPSTREAM_REMOTE}/alpha..HEAD'))
             if diff:
-                return f"{ver}-fork-[X].{len(diff)}"
+                return f"{ver}-PURPLE-[X].{len(diff)}"
     except Exception as e:
         _LOG.error(e)
         return " Check Update"

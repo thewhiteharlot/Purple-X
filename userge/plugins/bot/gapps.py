@@ -77,7 +77,7 @@ if userge.has_bot:
             )
         else:
             await callback_query.answer(
-                "Sorry You Can't Access This!\n\n 𝘿𝙚𝙥𝙡𝙤𝙮 𝙔𝙤𝙪𝙧 𝙊𝙬𝙣 𝙐𝙎𝙀𝙍𝙂𝙀-𝙓",
+                "Sorry You Can't Access This!\n\n 𝘿𝙚𝙥𝙡𝙤𝙮 𝙔𝙤𝙪𝙧 𝙊𝙬𝙣 𝙇𝙔𝙉𝙓",
                 show_alert=True,
             )
 
@@ -112,7 +112,7 @@ if userge.has_bot:
             )
         else:
             await callback_query.answer(
-                "Sorry You Can't Access This!\n\n  𝘿𝙚𝙥𝙡𝙤𝙮 𝙔𝙤𝙪𝙧 𝙊𝙬𝙣 𝙐𝙎𝙀𝙍𝙂𝙀-𝙓",
+                "Sorry You Can't Access This!\n\n  𝘿𝙚𝙥𝙡𝙤𝙮 𝙔𝙤𝙪𝙧 𝙊𝙬𝙣 𝙇𝙔𝙉𝙓",
                 show_alert=True,
             )
 
@@ -142,7 +142,7 @@ if userge.has_bot:
             )
         else:
             await callback_query.answer(
-                "Sorry You Can't Access This!\n\n 𝘿𝙚𝙥𝙡𝙤𝙮 𝙔𝙤𝙪𝙧 𝙊𝙬𝙣 𝙐𝙎𝙀𝙍𝙂𝙀-𝙓",
+                "Sorry You Can't Access This!\n\n 𝘿𝙚𝙥𝙡𝙤𝙮 𝙔𝙤𝙪𝙧 𝙊𝙬𝙣 𝙇𝙔𝙉𝙓",
                 show_alert=True,
             )
 
@@ -166,6 +166,6 @@ if userge.has_bot:
             )
         else:
             await callback_query.answer(
-                "Sorry You Can't Access This!\n\n 𝘿𝙚𝙥𝙡𝙤𝙮 𝙔𝙤𝙪𝙧 𝙊𝙬𝙣 𝙐𝙎𝙀𝙍𝙂𝙀-𝙓",
+                "Sorry You Can't Access This!\n\n 𝘿𝙚𝙥𝙡𝙤𝙮 𝙔𝙤𝙪𝙧 𝙊𝙬𝙣 𝙇𝙔𝙉𝙓",
                 show_alert=True,
             )

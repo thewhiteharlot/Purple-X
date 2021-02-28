@@ -69,10 +69,10 @@ async def allow(message: Message):
             {"_id": userid}, {"$set": {"status": "allowed"}}, upsert=True
         )
         if a.matched_count:
-            await message.edit("`Already approved to direct message`", del_in=3)
+            await message.edit("`Already approved to direct message`", del_in=7)
         else:
             await (await userge.get_users(userid)).unblock()
-            await message.edit("`Approved to direct message`", del_in=3)
+            await message.edit("`Approved to direct message`", del_in=7)
 
         if userid in PMPERMIT_MSG:
             await userge.delete_messages(userid, message_ids=PMPERMIT_MSG[userid])
@@ -81,7 +81,7 @@ async def allow(message: Message):
     else:
         await message.edit(
             "I need to reply to a user or provide the username/id or be in a private chat",
-            del_in=3,
+            del_in=7,
         )
 
 
@@ -105,13 +105,13 @@ async def denyToPm(message: Message):
             Config.ALLOWED_CHATS.remove(userid)
         a = await ALLOWED_COLLECTION.delete_one({"_id": userid})
         if a.deleted_count:
-            await message.edit("`Prohibitted to direct message`", del_in=3)
+            await message.edit("`Prohibitted to direct message`", del_in=7)
         else:
-            await message.edit("`Nothing was changed`", del_in=3)
+            await message.edit("`Nothing was changed`", del_in=7)
     else:
         await message.edit(
             "I need to reply to a user or provide the username/id or be in a private chat",
-            del_in=3,
+            del_in=7,
         )
 
 
@@ -146,10 +146,10 @@ async def pmguard(message: Message):
     global pmCounter  # pylint: disable=global-statement
     if Config.ALLOW_ALL_PMS:
         Config.ALLOW_ALL_PMS = False
-        await message.edit("`PM_guard activated`", del_in=3, log=__name__)
+        await message.edit("`PM_guard activated`", del_in=7, log=__name__)
     else:
         Config.ALLOW_ALL_PMS = True
-        await message.edit("`PM_guard deactivated`", del_in=3, log=__name__)
+        await message.edit("`PM_guard deactivated`", del_in=7, log=__name__)
         pmCounter.clear()
     await SAVED_SETTINGS.update_one(
         {"_id": "PM GUARD STATUS"},
@@ -179,13 +179,13 @@ async def set_custom_nopm_message(message: Message):
     """ setup custom pm message """
     global noPmMessage  # pylint: disable=global-statement
     if "-r" in message.flags:
-        await message.edit("`Custom NOpm message reset`", del_in=3, log=True)
+        await message.edit("`Custom NOpm message reset`", del_in=7, log=True)
         noPmMessage = bk_noPmMessage
         await SAVED_SETTINGS.find_one_and_delete({"_id": "CUSTOM NOPM MESSAGE"})
     else:
         string = message.input_or_reply_raw
         if string:
-            await message.edit("`Custom NOpm message saved`", del_in=3, log=True)
+            await message.edit("`Custom NOpm message saved`", del_in=7, log=True)
             noPmMessage = string
             await SAVED_SETTINGS.update_one(
                 {"_id": "CUSTOM NOPM MESSAGE"}, {"$set": {"data": string}}, upsert=True
@@ -216,13 +216,13 @@ async def set_custom_blockpm_message(message: Message):
     """ setup custom blockpm message """
     global blocked_message  # pylint: disable=global-statement
     if "-r" in message.flags:
-        await message.edit("`Custom BLOCKpm message reset`", del_in=3, log=True)
+        await message.edit("`Custom BLOCKpm message reset`", del_in=7, log=True)
         blocked_message = bk_blocked_message
         await SAVED_SETTINGS.find_one_and_delete({"_id": "CUSTOM BLOCKPM MESSAGE"})
     else:
         string = message.input_or_reply_raw
         if string:
-            await message.edit("`Custom BLOCKpm message saved`", del_in=3, log=True)
+            await message.edit("`Custom BLOCKpm message saved`", del_in=7, log=True)
             blocked_message = string
             await SAVED_SETTINGS.update_one(
                 {"_id": "CUSTOM BLOCKPM MESSAGE"},

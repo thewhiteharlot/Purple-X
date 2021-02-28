@@ -770,41 +770,40 @@ async def hack_func(message):
     user = await message.client.get_user_dict(message.from_user.id)
     heckerman = user["mention"]
     animation_chars = [
-        "```Connecting To Private Server \\```",
-        "```Connecting To Private Server |```",
-        "```Connecting To Private Server /```",
-        "```Connecting To Private Server \\```",
+        "```Connecting To Server \\```",
+        "```Connecting To Server |```",
+        "```Connecting To Metasploit /```",
+        "```Connecting To Hashcat \\```",
         "```Connection Established ```",
-        "```Target Selected```",
+        "```Starting Bruteforce Attack```",
         "```Backdoor Found In Target```",
-        "```Trying To Hack```",
-        "```Hacking... 0%\n▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒```",
-        "```Hacking... 4%\n█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒```",
-        "```Hacking... 8%\n██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒```",
-        "```Hacking... 20%\n█████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒```",
-        "```Hacking... 36%\n█████████▒▒▒▒▒▒▒▒▒▒▒▒▒```",
-        "```Hacking... 52%\n█████████████▒▒▒▒▒▒▒▒▒```",
-        "```Hacking... 70%\n█████████████████▒▒▒▒▒```",
-        "```Hacking... 88%\n█████████████████████▒```",
-        "```Hacking... 100%\n███████████████████████```",
-        "```Preparing Data... 1%\n▒██████████████████████```",
-        "```Preparing Data... 14%\n████▒██████████████████```",
-        "```Preparing Data... 30%\n████████▒██████████████```",
-        "```Preparing Data... 55%\n████████████▒██████████```",
-        "```Preparing Data... 72%\n████████████████▒██████```",
-        "```Preparing Data... 88%\n████████████████████▒██```",
-        "```Prepared Data... 100%\n███████████████████████```",
-        "```Uploading Data to Server... 12%\n███▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒```",
-        "```Uploading Data to Server... 44%\n█████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒```",
-        "```Uploading Data to Server... 68%\n███████████████▒▒▒▒▒▒▒▒```",
-        "```Uploading Data to Server... 89%\n████████████████████▒▒▒```",
-        "```Uploaded Data to Server... 100%\n███████████████████████```",
+        "```Obtaining account info```",
+        "Hacking... 0%\n[▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒]\n`Looking for open port...`\n",
+        "Hacking... 4%\n[█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒]\n`Looking for open port...`\n",
+        "Hacking... 8%\n[██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒]\n`Port 36226...``\n",
+        "Hacking... 20%\n[█████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒]\n`SQL Service/TCP port open [156]...`\n",
+        "Hacking... 36%\n[█████████▒▒▒▒▒▒▒▒▒▒▒▒▒]\n`WHOIS/TCP port open [43]...`\n",
+        "Hacking... 52%\n[█████████████▒▒▒▒▒▒▒▒▒]\n`Private port open [65534]...`\n",
+        "Hacking... 70%\n[█████████████████▒▒▒▒▒]\n`Starting Hashcat...`\n",
+        "Hacking... 88%\n[█████████████████████▒]\n`User pass[encrypted]:13S1CCeQtXqvTVvzkgnSMSrPL5qQfnt4XpEWMr6SpZs=`\n",
+        "Hacking... 100%\n[███████████████████████]\n`Uploading encrypted data...`\n",
+        "Preparing Data... 1%\n[▒██████████████████████]\n`Trying to Decrypt [1/65]...`\n",
+        "Preparing Data... 14%\n[████▒██████████████████]\n`Trying to Decrypt [9/65]...`\n",
+        "Preparing Data... 30%\n[████████▒██████████████]\n`Trying to Decrypt [28/65]...`\n",
+        "Preparing Data... 55%\n[████████████▒██████████]\n`Successfully decrypted...`\n",
+        "Preparing Data... 72%\n[████████████████▒██████]\n`Attesting connection...`\n",
+        "Preparing Data... 88%\n[████████████████████▒██]\n`Trying to connect...`\n",
+        "Prepared Data... 100%\n[███████████████████████]\n`Telegram SMS code authenticated...`\n",
+        "Uploading Data to Server... 44%\n[█████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒]\n`Uploading userdata to localhost...`\n",
+        "Uploading Data to Server... 68%\n[███████████████▒▒▒▒▒▒▒▒]\n`Scanning files...`\n",
+        "Uploading Data to Server... 89%\n[████████████████████▒▒▒]\n`Scanning files...`\n",
+        "Uploaded Data to Server... 100%\n[███████████████████████]\n`Finishing Metasploit/Hashcat process...`\n",
         "**User Data Upload Completed:** Target's User Data Stored "
-        "at `downloads/victim/telegram-authuser.data.sql`",
+        "at `downloads/tgframeworkripper/telegram-authuser.data.sql`",
     ]
     hecked = (
-        f"**Targeted Account Hacked**\n\n```Pay 69$ To``` {heckerman}``` "
-        "To Remove This Hack```"
+        f"**✅ Targeted Account Hacked**\n```Backdoor access granted to``` {heckerman}``` "
+        "📲 Remote Access Tool available```"
     )
     max_ani = len(animation_chars)
     for i in range(max_ani):
