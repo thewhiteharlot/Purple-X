@@ -348,3 +348,4 @@ async def raw_say(message: Message, name, collection):
             del_in=Config.WELCOME_DELETE_TIMEOUT,
         )
     message.stop_propagation()
+
