@@ -118,7 +118,7 @@ def get_version() -> str:
         else:
             diff = list(_REPO.iter_commits(f'{Config.UPSTREAM_REMOTE}/alpha..HEAD'))
             if diff:
-                return f"{ver}-PURPLE-[X].{len(diff)}"
+                return f"{ver}-ASTER-[X].{len(diff)}"
     except Exception as e:
         _LOG.error(e)
         return " Check Update"
