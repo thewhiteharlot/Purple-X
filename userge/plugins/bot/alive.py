@@ -44,7 +44,7 @@ async def _init() -> None:
 
 @userge.on_cmd("alive", about={"header": "Just For Fun"}, allow_channels=False)
 async def alive_inline(message: Message):
-    me = await userge.get_me()
+    await userge.get_me()
     try:
         if message.client.is_bot:
             await send_alive_message(message)
