@@ -1,1 +1,0 @@
-LYNX Cache Folder

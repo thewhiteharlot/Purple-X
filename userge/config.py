@@ -89,18 +89,15 @@ class Config:
     STATUS = None
     BOT_FORWARDS = False
     BOT_MEDIA = os.environ.get("BOT_MEDIA")
-    ### Spotify
     SPOTIFY_CLIENT_ID = os.environ.get('SPOTIFY_CLIENT_ID')
     SPOTIFY_CLIENT_SECRET = os.environ.get('SPOTIFY_CLIENT_SECRET')
     SPOTIFY_MODE = False
-    ### MEME Generator 
     IMGFLIP_ID = os.environ.get('IMGFLIP_ID')
     IMGFLIP_PASS = os.environ.get('IMGFLIP_PASS')
     ALLOW_NSFW = os.environ.get("ALLOW_NSFW", "False")
     PM_LOG_GROUP_ID = int(os.environ.get("PM_LOG_GROUP_ID", 0))
     PM_LOGGING = False
     DEEP_AI = os.environ.get("DEEP_AI")
-    ### Last FM
     LASTFM_USERNAME = os.environ.get("LASTFM_USERNAME")
     LASTFM_API_KEY = os.environ.get("LASTFM_API_KEY")
     TG_IDS = [777000, 1087968824, 454000]
@@ -121,5 +118,5 @@ def get_version() -> str:
                 return f"{ver}-ASTER-[X].{len(diff)}"
     except Exception as e:
         _LOG.error(e)
-        return " Check Update"
-    return ver
+        return ver
+
