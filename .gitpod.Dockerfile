@@ -1,3 +1,4 @@
+
 FROM gitpod/workspace-full
 
 RUN sudo apt-get update \
@@ -14,7 +15,8 @@ RUN sudo apt-get update \
         gnupg2 \
         unzip \
         wget \
-        jq && \
-        sudo rm -rf /var/lib/apt/lists/*
+        jq 
 
 RUN curl -sO https://cli-assets.heroku.com/install.sh && bash install.sh && rm install.sh
+
+RUN sudo rm -rf /var/lib/apt/lists/*
