@@ -164,7 +164,7 @@ class Bot_Alive:
   🔥  <b>| Pyro      :</b>    <code>v{versions.__pyro_version__}</code>
   👤  <b>| User      :</b>    <code>{user}</code>
 
-  🧬  <b>|</b> 𝑳𝒀𝑵𝑿     :   <code>{get_version()}</code>
+  🧬  <b>|</b> 𝑳𝒀𝑵𝑿     :   <code>{get_version()}-ASTER</code>
   <b> ➖➖➖➖➖➖➖➖ </b>
    {Bot_Alive._get_mode()}      <b>|</b>    🕔 {userge.uptime}
 
