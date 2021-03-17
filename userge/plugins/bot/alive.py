@@ -6,7 +6,6 @@ from re import compile as comp_regex
 
 from pyrogram import filters
 from pyrogram.errors import BadRequest, FloodWait, Forbidden, MediaEmpty
-from pyrogram.file_id import PHOTO_TYPES, FileId
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 
 from userge import Config, Message, get_version, userge, versions
@@ -257,11 +256,10 @@ class Bot_Alive:
     @staticmethod
     def alive_default_imgs() -> str:
         alive_imgs = [
-            "https://telegra.ph/file/11123ef7dff2f1e19e79d.jpg",
+            "https://telegra.ph/file/f2d9134c4504d5cf2691e.jpg",
             "https://i.imgur.com/uzKdTXG.jpg",
-            "https://telegra.ph/file/6ecab390e4974c74c3764.png",
-            "https://telegra.ph/file/995c75983a6c0e4499b55.png",
-            "https://telegra.ph/file/86cc25c78ad667ca5e691.png",
+            "https://telegra.ph/file/572445224eb0341195feb.jpg",
+            "https://telegra.ph/file/1acedf958651594a5977d.jpg",
         ]
         return rand_array(alive_imgs)
 
