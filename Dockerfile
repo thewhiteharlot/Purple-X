@@ -17,7 +17,8 @@ RUN apt -qq install -y --no-install-recommends \
     git \
     gnupg2 \
     wget \
-    unzip
+    unzip \
+    tree
 
 # to resynchronize the package index files from their sources.
 RUN apt -qq update
@@ -70,9 +71,8 @@ RUN apt -qq install -y --no-install-recommends \
 # copy the dependencies file to the working directory
 COPY requirements.txt .
 
-# install dependencies
-
-RUN pip install -U setuptools setuptools-scm wheel && pip install --no-cache-dir -r requirements.txt
+RUN pip install -U setuptools wheel && \
+    pip install -r requirements.txt
 
 # copy the content of the local src directory to the working directory
 COPY . .

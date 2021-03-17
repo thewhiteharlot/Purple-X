@@ -1,1 +1,1 @@
-LYNX Cache Folder
+## X Cache Folder
