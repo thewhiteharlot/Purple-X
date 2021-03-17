@@ -226,21 +226,23 @@ class Bot_Alive:
         alive_info_ = f"""
 <a href="https://telegram.dog/x_xtests"><b>LYNX</a> is Up and Running.</b>
 
-  🐍   <b>Python :</b>    <code>v{versions.__python_version__}</code>
-  🔥   <b>Pyrogram :</b>    <code>v{versions.__pyro_version__}</code>
-  🧬   <b>𝐋𝐘𝐍𝐗 :</b>    <code>v{get_version()}</code>
+   <b> ➖➖➖➖➖➖➖➖ </b>
+  🐍  <b>| Python  :</b>    <code>v{versions.__python_version__}</code>
+  🔥  <b>| Pyro      :</b>    <code>v{versions.__pyro_version__}</code>
 
-<b>{Bot_Alive._get_mode()}</b>    <code>|</code>    🕔  <b>{userge.uptime}</b>
+  🧬  <b>|</b> 𝑳𝒀𝑵𝑿     :   <code>{get_version()}-ASTER</code>
+   <b> ➖➖➖➖➖➖➖➖ </b>
+   {Bot_Alive._get_mode()}      <b>|</b>    🕔 {userge.uptime}
 """
         return alive_info_
 
     @staticmethod
     def _get_mode() -> str:
         if RawClient.DUAL_MODE:
-            return "↕️  DUAL"
+            return "♾ DUAL"
         if Config.BOT_TOKEN:
-            return "🤖  BOT"
-        return "👤  USER"
+            return "🤖 BOT"
+        return "👤 USER"
 
     @staticmethod
     def alive_buttons() -> InlineKeyboardMarkup:
