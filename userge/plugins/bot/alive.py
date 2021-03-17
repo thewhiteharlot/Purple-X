@@ -22,6 +22,7 @@ LOGGER = userge.getLogger(__name__)
 
 
 async def _init() -> None:
+    await userge.get_me()
     global _USER_CACHED_MEDIA, _BOT_CACHED_MEDIA
     if Config.ALIVE_MEDIA and Config.ALIVE_MEDIA.lower() != "false":
         am_type, am_link = await Bot_Alive.check_media_link(Config.ALIVE_MEDIA.strip())
