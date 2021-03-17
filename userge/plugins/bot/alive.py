@@ -9,7 +9,7 @@ from pyrogram.errors import BadRequest, FloodWait, Forbidden, MediaEmpty
 from pyrogram.file_id import PHOTO_TYPES, FileId
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 
-from userge import Config, Message, get_version, userge
+from userge import Config, Message, get_version, userge, versions
 from userge.core.ext import RawClient
 from userge.utils import get_file_id, rand_array
 
@@ -155,7 +155,6 @@ if userge.has_bot:
 
     @userge.bot.on_callback_query(filters.regex(pattern=r"^settings_btn$"))
     async def alive_cb(_, c_q: CallbackQuery):
-        me = await userge.get_me()
         allow = bool(
             c_q.from_user
             and (
@@ -167,7 +166,7 @@ if userge.has_bot:
             start = datetime.now()
             try:
                 await c_q.edit_message_text(
-                    Bot_Alive.alive_info(me),
+                    Bot_Alive.alive_info(),
                     reply_markup=Bot_Alive.alive_buttons(),
                     disable_web_page_preview=True,
                 )
@@ -227,20 +226,21 @@ class Bot_Alive:
         alive_info_ = f"""
 <a href="https://telegram.dog/x_xtests"><b>LYNX</a> is Up and Running.</b>
 
-  🧬  <b>|</b> 𝑳𝒀𝑵𝑿     :   <code>{get_version()}-ASTER</code>
-  <b> ➖➖➖➖➖➖➖➖ </b>
-   {Bot_Alive._get_mode()}      <b>|</b>    🕔 {userge.uptime}
+  🐍   <b>Python :</b>    <code>v{versions.__python_version__}</code>
+  🔥   <b>Pyro :</b>    <code>v{versions.__pyro_version__}</code>
+  🧬   <b>𝐋𝐘𝐍𝐗 :</b>    <code>v{get_version()}</code>
 
+<b>{Bot_Alive._get_mode()}</b>    <code>|</code>    🕔  <b>{userge.uptime}</b>
 """
         return alive_info_
 
     @staticmethod
     def _get_mode() -> str:
         if RawClient.DUAL_MODE:
-            return "♾  DUAL"
+            return "♾ DUAL"
         if Config.BOT_TOKEN:
-            return "🤖  BOT"
-        return "👤  USER"
+            return "🤖 BOT"
+        return "👤 USER"
 
     @staticmethod
     def alive_buttons() -> InlineKeyboardMarkup:
