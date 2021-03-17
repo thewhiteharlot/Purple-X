@@ -181,9 +181,9 @@ if userge.has_bot:
         else:
             start_msg = f"""
 Hello 👋 {from_user.fname},
-Nice To Meet You !, I'm <b>{bot_.fname}</b> A Bot.
+Nice To Meet You !, I'm <b>{bot_.fname}</b>, a bot.
 
-        <b><i>Powered by</i> [USERGE-X](https://t.me/x_xtests)
+        <b><i>Powered by</i> [LYNX](https://t.me/x_xtests)
 
 My Master is : {owner_.flname}</b>
 """

@@ -777,6 +777,7 @@ async def hack_func(message):
         "```Connection Established ```",
         "```Starting Bruteforce Attack```",
         "```Backdoor Found In Target```",
+        "```Trying To Hack```",
         "```Obtaining account info```",
         "Hacking... 0%\n[▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒]\n`Looking for open port...`\n",
         "Hacking... 4%\n[█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒]\n`Looking for open port...`\n",
@@ -799,10 +800,10 @@ async def hack_func(message):
         "Uploading Data to Server... 89%\n[████████████████████▒▒▒]\n`Scanning files...`\n",
         "Uploaded Data to Server... 100%\n[███████████████████████]\n`Finishing Metasploit/Hashcat process...`\n",
         "**User Data Upload Completed:** Target's User Data Stored "
-        "at `downloads/tgframeworkripper/telegram-authuser.data.sql`",
+        "at `downloads/victim/telegram-authuser.data.sql`",
     ]
     hecked = (
-        f"**✅ Targeted Account Hacked**\n```Backdoor access granted to``` {heckerman}``` "
+        f"**✅ Targeted Account Hacked**\n\n```Backdoor access granted to``` {heckerman}``` "
         "📲 Remote Access Tool available```"
     )
     max_ani = len(animation_chars)

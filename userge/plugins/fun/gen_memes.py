@@ -1,6 +1,6 @@
 """Generate Memes"""
 
-# Copyright (C) 2020 By - LYNX
+# Copyright (C) 2020 By - USERGE-X
 # All rights reserved.
 # Author - @iTz_Black007 // blacky
 # Co Author - Github/code-rgb

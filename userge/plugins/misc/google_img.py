@@ -1,6 +1,6 @@
 """Google IMGS"""
 
-#  Copyright (C) 2021 BY LYNX
+#  Copyright (C) 2021 BY USERGE-X
 #  All rights reserved.
 #
 #  Author: https://github.com/code-rgb [TG: @DeletedUser420]

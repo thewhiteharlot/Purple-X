@@ -106,17 +106,17 @@ class Config:
 
 
 def get_version() -> str:
-    """ get LYNX version """
+    """ get USERGE-X version """
     ver = f"{versions.__major__}.{versions.__minor__}.{versions.__micro__}"
     try:
         if "/thewhiteharlot/Purple-X" in Config.UPSTREAM_REPO.lower():
             diff = list(_REPO.iter_commits(f'v{ver}..HEAD'))
             if diff:
-                return f"{ver}-{len(diff)}"
+                return f"{ver}-ASTER.{len(diff)}"
         else:
             diff = list(_REPO.iter_commits(f'{Config.UPSTREAM_REMOTE}/alpha..HEAD'))
             if diff:
-                return f"{ver}-[X].{len(diff)}"
+                return f"{ver}-ALLIUM-[X].{len(diff)}"
     except Exception as e:
         _LOG.error(e)
         return ver

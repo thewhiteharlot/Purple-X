@@ -274,13 +274,13 @@ def resize_photo(photo: str) -> io.BytesIO:
 
 
 KANGING_STR = (
-    "Using Alchemy to clone this sticker...",
-    "You know where sticker would look good? In my pack...",
+    "Using alchemy to clone this sticker...",
+    "You know where sticker would look good? In my sticker collection...",
     "Inviting this sticker over to my pack...",
     "We are 0 days without kanging stickers, current record is: 0 days...",
     "I choose you!\nGo Pi-kang-chu?!..",
     "hehe finders keepers\nlosers weepers.",
-    "Ay look over there (☉｡☉)!→\nWhile I kang this...",
+    "Ay look over there (☉｡☉)!→\nWhile I grab this...",
     "Alakazim Alakazam, let me kang this sticker to my Telegram",
     "Taking this sticker to a trip on my database...",
     "Mr.Steal Your Sticker is stealing this sticker... ",

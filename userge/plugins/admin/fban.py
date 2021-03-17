@@ -109,7 +109,7 @@ async def fban_(message: Message):
         or user == (await message.client.get_me()).id
     ):
         return await message.err(
-            "Can't F-Ban users that exists in Sudo or Owners", del_in=7
+            "Can't F-Ban users that exists in Sudo or Owners", del_in=10
         )
     failed = []
     total = 0
@@ -143,9 +143,9 @@ async def fban_(message: Message):
     await message.edit(fban_arg[2])
 
     if len(failed) != 0:
-        status = f"Failed to fban in {len(failed)}/{total} feds. \n"
+        status = f"Failed to fban in {len(failed)}/{total} feds.\n"
         for i in failed:
-            status += "• " + i + " - __Reason updated__" + "\n"
+            status += "• " + i + "\n"
     else:
         status = f"Success! Fbanned in `{total}` feds."
     msg_ = (
@@ -186,7 +186,7 @@ async def unfban_(message: Message):
         total += 1
         chat_id = int(data["chat_id"])
         try:
-            async with userge.conversation(chat_id, timeout=8) as conv:
+            async with userge.conversation(chat_id, timeout=20) as conv:
                 await conv.send_message(f"/unfban {user}")
                 response = await conv.get_response(
                     mark_read=True,
@@ -211,7 +211,7 @@ async def unfban_(message: Message):
     if len(failed) != 0:
         status = f"Failed to un-fban in `{len(failed)}/{total}` feds.\n"
         for i in failed:
-            status += "• " + i + "\n"
+            status += "• " + i + " - __Reason updated__" + "\n"
     else:
         status = f"Success! Un-Fbanned in `{total}` feds."
     msg_ = fban_arg[3].format(user_.mention) + f"\n**Status:** {status}"

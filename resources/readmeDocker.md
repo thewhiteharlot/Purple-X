@@ -13,10 +13,10 @@
 - Setup configs
     - Download the sample config file <br>
         - ```mkdir LYNX && cd LYNX```
-        - ```wget https://raw.githubusercontent.com/thewhiteharlot/Purple-X/alpha/config.env.sample -O config.env```
+        - ```wget https://raw.githubusercontent.com/code-rgb/LYNX/alpha/config.env.sample -O config.env```
         - ```vim config.env```
     - Download the yml file for docker-compose
-        - ```wget https://raw.githubusercontent.com/thewhiteharlot/Purple-X/alpha/resources/docker-compose.yml```
+        - ```wget https://raw.githubusercontent.com/code-rgb/LYNX/alpha/resources/docker-compose.yml```
 - Finally start the bot <br>
 ```docker-compose up -d```
 - The bot should be running now <br>
