@@ -6,7 +6,6 @@ from re import compile as comp_regex
 
 from pyrogram import filters
 from pyrogram.errors import BadRequest, FloodWait, Forbidden, MediaEmpty
-from pyrogram.file_id import PHOTO_TYPES, FileId
 from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup
 
 from userge import Config, Message, get_version, userge, versions
@@ -266,4 +265,3 @@ class Bot_Alive:
     @staticmethod
     def get_bot_cached_fid() -> str:
         return _BOT_CACHED_MEDIA
-
