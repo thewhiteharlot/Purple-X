@@ -22,7 +22,6 @@ LOGGER = userge.getLogger(__name__)
 
 
 async def _init() -> None:
-    me = await userge.get_me()
     global _USER_CACHED_MEDIA, _BOT_CACHED_MEDIA
     if Config.ALIVE_MEDIA and Config.ALIVE_MEDIA.lower() != "false":
         am_type, am_link = await Bot_Alive.check_media_link(Config.ALIVE_MEDIA.strip())
@@ -225,14 +224,8 @@ class Bot_Alive:
 
     @staticmethod
     def alive_info() -> str:
-        user = " ".join([me.first_name or ""])
         alive_info_ = f"""
 <a href="https://telegram.dog/x_xtests"><b>LYNX</a> is Up and Running.</b>
-
-  <b> ➖➖➖➖➖➖➖➖ </b>
-  🐍  <b>| Python  :</b>    <code>v{versions.__python_version__}</code>
-  🔥  <b>| Pyro      :</b>    <code>v{versions.__pyro_version__}</code>
-  👤  <b>| User      :</b>    <code>{user}</code>
 
   🧬  <b>|</b> 𝑳𝒀𝑵𝑿     :   <code>{get_version()}-ASTER</code>
   <b> ➖➖➖➖➖➖➖➖ </b>

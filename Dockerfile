@@ -20,16 +20,6 @@ RUN apt -qq install -y --no-install-recommends \
     unzip \
     tree
 
-# to resynchronize the package index files from their sources.
-RUN apt -qq update
-
-# http://bugs.python.org/issue19846
-# https://github.com/SpEcHiDe/PublicLeech/pull/97
-ENV LANG C.UTF-8
-
-# we don't have an interactive xTerm
-ENV DEBIAN_FRONTEND noninteractive
-
 # install chrome
 RUN mkdir -p /tmp/ && \
     cd /tmp/ && \
