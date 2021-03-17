@@ -267,3 +267,6 @@ class Bot_Alive:
     def get_bot_cached_fid() -> str:
         return _BOT_CACHED_MEDIA
 
+    @staticmethod
+    def is_photo(file_id: str) -> bool:
+        return bool(FileId.decode(file_id).file_type in PHOTO_TYPES)
