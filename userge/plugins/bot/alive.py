@@ -90,7 +90,7 @@ async def send_alive_message(message: Message) -> None:
         reply_markup = None
         file_id = _USER_CACHED_MEDIA
         caption += (
-            f"\n⚡️  <a href={Config.UPSTEAM_REPO}><b>REPO</b></a>"
+            f"\n👾  <a href={Config.UPSTEAM_REPO}><b>REPO</b></a>"
             "    <code>|</code>    "
             "👥  <a href='https://t.me/useless_x'><b>SUPPORT</b></a>"
         )
@@ -226,24 +226,21 @@ class Bot_Alive:
         alive_info_ = f"""
 <a href="https://telegram.dog/x_xtests"><b>LYNX</a> is Up and Running.</b>
 
-   <b> ➖➖➖➖➖➖➖➖ </b>
-  🐍  <b>| Python  :</b>    <code>v{versions.__python_version__}</code>
-  🔥  <b>| Pyro      :</b>    <code>v{versions.__pyro_version__}</code>
-  👤  <b>| User      :</b>    <code>{user}</code>
+  🐍   <b>Python :</b>    <code>v{versions.__python_version__}</code>
+  🔥   <b>Pyrogram :</b>    <code>v{versions.__pyro_version__}</code>
+  🧬   <b>𝐋𝐘𝐍𝐗 :</b>    <code>v{get_version()}</code>
 
-  🧬  <b>|</b> 𝑳𝒀𝑵𝑿     :   <code>{get_version()}</code>
-   <b> ➖➖➖➖➖➖➖➖ </b>
-   {Bot_Alive._get_mode()}      <b>|</b>    🕔 {userge.uptime}
+<b>{Bot_Alive._get_mode()}</b>    <code>|</code>    🕔  <b>{userge.uptime}</b>
 """
         return alive_info_
 
     @staticmethod
     def _get_mode() -> str:
         if RawClient.DUAL_MODE:
-            return "↕️ DUAL"
+            return "↕️  DUAL"
         if Config.BOT_TOKEN:
-            return "🤖 BOT"
-        return "👤 USER"
+            return "🤖  BOT"
+        return "👤  USER"
 
     @staticmethod
     def alive_buttons() -> InlineKeyboardMarkup:
