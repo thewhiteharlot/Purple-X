@@ -80,9 +80,7 @@ async def restart_(message: Message):
         asyncio.get_event_loop().create_task(userge.restart())
 
 
-@userge.on_cmd(
-    "shutdown", about={"header": "shutdown LYNX :)"}, allow_channels=False
-)
+@userge.on_cmd("shutdown", about={"header": "shutdown LYNX :)"}, allow_channels=False)
 async def shutdown_(message: Message) -> None:
     """ shutdown LYNX """
     await message.edit("`shutting down ...`")
