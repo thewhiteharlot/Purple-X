@@ -1,4 +1,4 @@
-# Docker Guide For LYNX 🐳 #
+# Docker Guide For USERGE-X 🐳 #
 
 ## Install docker ##
 - Follow the official docker [installation guide](https://docs.docker.com/engine/install/ubuntu/)
@@ -8,15 +8,15 @@
 ```sudo pip install docker-compose```
 - Also you can check other official methods of installing docker-compose [here](https://docs.docker.com/compose/install/)
 
-## Run LYNX ##
+## Run USERGE-X ##
 - We dont need to clone the repo (yeah Docker-compose does that for us)
 - Setup configs
     - Download the sample config file <br>
-        - ```mkdir LYNX && cd LYNX```
-        - ```wget https://raw.githubusercontent.com/code-rgb/LYNX/alpha/config.env.sample -O config.env```
+        - ```mkdir userge-x && cd userge-x```
+        - ```wget https://raw.githubusercontent.com/code-rgb/userge-x/alpha/config.env.sample -O config.env```
         - ```vim config.env```
     - Download the yml file for docker-compose
-        - ```wget https://raw.githubusercontent.com/code-rgb/LYNX/alpha/resources/docker-compose.yml```
+        - ```wget https://raw.githubusercontent.com/code-rgb/userge-x/alpha/resources/docker-compose.yml```
 - Finally start the bot <br>
 ```docker-compose up -d```
 - The bot should be running now <br>
