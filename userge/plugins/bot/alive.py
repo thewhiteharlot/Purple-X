@@ -260,9 +260,10 @@ class Bot_Alive:
     def alive_default_imgs() -> str:
         alive_imgs = [
             "https://telegra.ph/file/f2d9134c4504d5cf2691e.jpg",
-            "https://i.imgur.com/uzKdTXG.jpg",
+            "https://telegra.ph/file/895b991523831a7a4bdd1.mp4",
             "https://telegra.ph/file/572445224eb0341195feb.jpg",
             "https://telegra.ph/file/1acedf958651594a5977d.jpg",
+            "https://telegra.ph/file/be02302f92d2f65318232.jpg"
         ]
         return rand_array(alive_imgs)
 
