@@ -229,10 +229,10 @@ class Bot_Alive:
 <a href="https://telegram.dog/x_xtests"><b>LYNX</a> is Up and Running.</b>
 
    <b> ➖➖➖➖➖➖➖➖ </b>
-  🐍  <b>| Python  :</b>    <code>v{versions.__python_version__}</code>
-  🔥  <b>| Pyro      :</b>    <code>v{versions.__pyro_version__}</code>
+  ⚙️ <b>| Python  :</b>    <code>v{versions.__python_version__}</code>
+  🔱  <b>| Pyro      :</b>    <code>v{versions.__pyro_version__}</code>
 
-  🧬  <b>|</b> 𝑳𝒀𝑵𝑿     :   <code>{get_version()}-ASTER</code>
+  ⚜️  <b>|</b> 𝑳𝒀𝑵𝑿     :   <code>{get_version()}-ASTER</code>
    <b> ➖➖➖➖➖➖➖➖ </b>
    {Bot_Alive._get_mode()}      <b>|</b>    🕔 {userge.uptime}
 """
