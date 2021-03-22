@@ -139,7 +139,7 @@ def get_version() -> str:
             diff = list(_REPO.iter_commits(f"{Config.UPSTREAM_REMOTE}/alpha..HEAD"))
             if diff:
                 ver = f"{ver}|ALLIUM-[X].{len(diff)}"
-        branch = f"@{_REPO.active_branch.name}"
+        branch = f""
     except Exception as err:
         _LOG.error(err)
     else:
