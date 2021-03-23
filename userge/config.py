@@ -70,6 +70,7 @@ class Config:
     REMOVE_BG_API_KEY = os.environ.get("REMOVE_BG_API_KEY")
     WEATHER_DEFCITY = os.environ.get("WEATHER_DEFCITY")
     TZ_NUMBER = os.environ.get("TZ_NUMBER", 1)
+    GENIUS = os.environ.get("GENIUS")
     G_DRIVE_CLIENT_ID = os.environ.get("G_DRIVE_CLIENT_ID")
     G_DRIVE_CLIENT_SECRET = os.environ.get("G_DRIVE_CLIENT_SECRET")
     G_DRIVE_PARENT_ID = os.environ.get("G_DRIVE_PARENT_ID")
