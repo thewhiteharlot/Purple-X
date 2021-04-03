@@ -142,46 +142,11 @@ async def grp_log(_, message: Message):
     filters.private & ~filters.bot & ~filters.edited & tagLoggingFilter, group=5
 )
 async def pm_log(_, message: Message):
-    sender_id = message.from_user.id
-    if not Config.PM_LOG_GROUP_ID:
-        return
-    chat_id = message.chat.id
-    if chat_id in Config.TG_IDS:
-        return
-    chat = await userge.get_chat(chat_id)
-    if chat.type == "bot":
-        return
-    chat_name = " ".join([chat.first_name, chat.last_name or ""])
     id = message.message_id
-    log = f"""
-🗣 <b>#Conversation</b> with:
-🔢 <b>ID :</b> <code>{chat_id}</code>
-👤 <a href="tg://user?id={chat_id}">{chat_name}</a> ⬇
-"""
+    if message.chat.id in Config.TG_IDS:
+        return
     try:
-        me_id = user(info="id")
-        if sender_id == me_id:
-            await asyncio.sleep(0.5)
-            await userge.send_message(
-                Config.PM_LOG_GROUP_ID,
-                log,
-                parse_mode="html",
-                disable_web_page_preview=True,
-            )
-        await asyncio.sleep(0.5)
-        if message.reply_to_message:
-            replied_id = message.reply_to_message.message_id
-            fwd = await userge.forward_messages(
-                Config.PM_LOG_GROUP_ID, chat_id, replied_id, disable_notification=True
-            )
-            await userge.send_message(
-                Config.PM_LOG_GROUP_ID,
-                f"↪️ #Replied with...⬇",
-                reply_to_message_id=fwd.message_id,
-            )
-        await userge.forward_messages(
-            Config.PM_LOG_GROUP_ID, chat_id, id, disable_notification=True
-        )
+        await userge.forward_messages(Config.PM_LOG_GROUP_ID, message.chat.id, id)
     except FloodWait as e:
         await asyncio.sleep(e.x + 3)
 
