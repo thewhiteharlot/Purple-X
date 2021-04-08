@@ -168,7 +168,7 @@ async def fban_(message: Message):
                     and ("Start a federation ban" not in resp)
                     and ("FedBan reason updated" not in resp)
                 ):
-                    failed.append(f"{data['fed_name']}  \n__ID__: `{data['chat_id']}`")
+                    failed.append(f"{data['fed_name']}")
 
         except BaseException:
             failed.append(data["fed_name"])
@@ -280,7 +280,7 @@ async def fban_p(message: Message):
                     and ("Start a federation ban" not in resp)
                     and ("FedBan reason updated" not in resp)
                 ):
-                    failed.append(f"{data['fed_name']}  \n__ID__: {data['chat_id']}")
+                    failed.append(f"{data['fed_name']}")
         except BaseException:
             failed.append(data["fed_name"])
     if total == 0:
