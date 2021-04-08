@@ -96,7 +96,7 @@ async def delfed_(message: Message):
 async def fban_(message: Message):
     """Bans a user from connected Feds."""
     message.flags
-    fban_arg = ["❯", "❯❯ __Banning__", "❯❯❯", "❯❯❯ <b>FBanned {}</b>"]
+    fban_arg = ["❯", "❯❯ __FBanning__", "❯❯❯", "❯❯❯ <b>FBanned {}</b>"]
     d_err = ("Failed to detect user **{}**, fban might not work...",)
     input = message.filtered_input_str
     await message.edit(fban_arg[0])
@@ -201,7 +201,7 @@ async def fban_(message: Message):
 )
 async def fban_p(message: Message):
     """Fban user from connected feds with proof."""
-    fban_arg = ["❯", "❯❯", "❯❯❯", "❯❯❯ <b>FBanned {}</b>"]
+    fban_arg = ["❯", "❯❯ __FBanning__", "❯❯❯", "❯❯❯ <b>FBanned {}</b>"]
     d_err = ("Failed to detect user **{}**, fban might not work...",)
     if not message.reply_to_message:
         await message.err("Please reply to proof...", del_in=7)
@@ -292,7 +292,7 @@ async def fban_p(message: Message):
     if len(failed) != 0:
         status = f"Failed to fban in {len(failed)}/{total} feds.\n"
         for i in failed:
-            status += "• " + i + "\n"
+            status += "• " + i + " - __Reason updated__" + "\n"
     else:
         status = f"Success! Fbanned in {total} feds."
     msg_ = fban_arg[3].format(u_link) + f"\n**Reason:** {reason}\n**Status:** {status}"
@@ -372,7 +372,7 @@ async def fban_m(message: Message):
 async def unfban_(message: Message):
     """Unbans a user from connected Feds."""
     user = (message.extract_user_and_text)[0]
-    fban_arg = ["❯", "❯❯", "❯❯❯", "❯❯❯ <b>Un-FBanned {}</b>"]
+    fban_arg = ["❯", "❯❯ __UnFBanning__", "❯❯❯", "❯❯❯ <b>Un-FBanned {}</b>"]
     await message.edit(fban_arg[0])
     error_msg = "Provide a User ID or reply to a User"
     if user is None:
@@ -414,7 +414,7 @@ async def unfban_(message: Message):
     if len(failed) != 0:
         status = f"Failed to un-fban in `{len(failed)}/{total}` feds.\n"
         for i in failed:
-            status += "• " + i + "\n"
+            status += "• " + i + " - __User is not FBanned__" + "\n"
     else:
         status = f"Success! Un-Fbanned in `{total}` feds."
     msg_ = fban_arg[3].format(user_.mention) + f"\n**Status:** {status}"
