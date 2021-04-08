@@ -96,7 +96,7 @@ async def delfed_(message: Message):
 async def fban_(message: Message):
     """Bans a user from connected Feds."""
     message.flags
-    fban_arg = ["❯", "❯❯", "❯❯❯", "❯❯❯ <b>FBanned {}</b>"]
+    fban_arg = ["❯", "❯❯ __Banning__", "❯❯❯", "❯❯❯ <b>FBanned {}</b>"]
     d_err = ("Failed to detect user **{}**, fban might not work...",)
     input = message.filtered_input_str
     await message.edit(fban_arg[0])
@@ -181,7 +181,7 @@ async def fban_(message: Message):
     if len(failed) != 0:
         status = f"Failed to fban in {len(failed)}/{total} feds.\n"
         for i in failed:
-            status += "• " + i + "\n"
+            status += "• " + i + " - __Reason updated__" + "\n"
     else:
         status = f"Success! Fbanned in `{total}` feds."
     msg_ = fban_arg[3].format(u_link) + f"\n**Reason:** {reason}\n**Status:** {status}"
