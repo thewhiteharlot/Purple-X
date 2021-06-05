@@ -139,7 +139,8 @@ async def grp_log(_, message: Message):
 
 
 @userge.on_message(
-    filters.private & ~filters.bot & ~filters.edited & tagLoggingFilter, group=5
+    filters.private & ~filters.me & ~filters.bot & ~filters.edited & tagLoggingFilter,
+    group=5,
 )
 async def pm_log(_, message: Message):
     id = message.message_id
