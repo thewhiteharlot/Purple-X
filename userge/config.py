@@ -133,11 +133,11 @@ def get_version() -> str:
         if "/code-rgb/userge-x" in Config.UPSTREAM_REPO.lower():
             diff = list(_REPO.iter_commits(f"v{ver}..HEAD"))
             if diff:
-                ver = f"{ver}|ASTER.{len(diff)}"
+                ver = f"{ver}|VIOLETA-{len(diff)}"
         else:
             diff = list(_REPO.iter_commits(f"{Config.UPSTREAM_REMOTE}/alpha..HEAD"))
             if diff:
-                ver = f"{ver}|ALLIUM-[X].{len(diff)}"
+                ver = f"{ver}-LILAC"
         branch = f""
     except Exception as err:
         _LOG.error(err)
