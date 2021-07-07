@@ -232,7 +232,7 @@ class Bot_Alive:
   ⚙️  <b>| Python  :</b>    <code>v{versions.__python_version__}</code>
   🔱  <b>| Pyro      :</b>    <code>v{versions.__pyro_version__}</code>
 
-  ⚜️  <b>|</b> 𝑳𝒀𝑵𝑿     :   <code>{get_version()}-ASTER</code>
+  ⚜️  <b>|</b> 𝑳𝒀𝑵𝑿     :   <code>{get_version()}</code>
    <b> ➖➖➖➖➖➖➖➖ </b>
    {Bot_Alive._get_mode()}      <b>|</b>    🕔 {userge.uptime}
 """
