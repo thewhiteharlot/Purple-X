@@ -36,7 +36,7 @@ from userge.plugins.misc.upload import get_thumb, remove_thumb
 
 # some helpers
 def get_caption(post: Post) -> str:
-    """ adds link to profile for tagged users """
+    """adds link to profile for tagged users"""
     caption = post.caption
     replace = '<a href="https://instagram.com/{}/">{}</a>'
     for mention in post.caption_mentions:
@@ -53,7 +53,7 @@ def get_caption(post: Post) -> str:
 async def upload_to_tg(
     message: Message, dirname: str, post: Post
 ) -> None:  # pylint: disable=R0912
-    """ uploads downloaded post from local to telegram servers """
+    """uploads downloaded post from local to telegram servers"""
     pto = (".jpg", ".jpeg", ".png", ".bmp")
     vdo = (".mkv", ".mp4", ".webm")
     paths = []
@@ -132,26 +132,26 @@ async def upload_to_tg(
 # run some process in threads?
 @pool.run_in_thread
 def download_post(client: Instaloader, post: Post) -> bool:
-    """ Downloads content and returns True """
+    """Downloads content and returns True"""
     client.download_post(post, post.owner_username)
     return True
 
 
 @pool.run_in_thread
 def get_post(client: Instaloader, shortcode: str) -> Post:
-    """ returns a post object """
+    """returns a post object"""
     return Post.from_shortcode(client.context, shortcode)
 
 
 @pool.run_in_thread
 def get_profile(client: Instaloader, username: str) -> Profile:
-    """ returns profile """
+    """returns profile"""
     return Profile.from_username(client.context, username)
 
 
 @pool.run_in_thread
 def get_profile_posts(profile: Profile) -> NodeIterator[Post]:
-    """ returns a iterable Post object """
+    """returns a iterable Post object"""
     return profile.get_posts()
 
 
@@ -176,7 +176,7 @@ def get_profile_posts(profile: Profile) -> NodeIterator[Post]:
     },
 )
 async def _insta_post_downloader(message: Message):
-    """ download instagram post """
+    """download instagram post"""
     await message.edit("`Setting up Configs. Please don't flood.`")
     dirname = "instadl_{target}"
     filename = "{target}'s_post"

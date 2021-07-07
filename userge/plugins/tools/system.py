@@ -57,7 +57,7 @@ async def _init() -> None:
     allow_channels=False,
 )
 async def restart_(message: Message):
-    """ restart LYNX """
+    """restart LYNX"""
     await message.edit("`Restarting LYNX Services`", log=__name__)
     LOG.info("LYNX Services - Restart initiated")
     if "t" in message.flags:
@@ -82,7 +82,7 @@ async def restart_(message: Message):
 
 @userge.on_cmd("shutdown", about={"header": "shutdown LYNX :)"}, allow_channels=False)
 async def shutdown_(message: Message) -> None:
-    """ shutdown LYNX """
+    """shutdown LYNX"""
     await message.edit("`shutting down ...`")
     if Config.HEROKU_APP:
         try:
@@ -107,7 +107,7 @@ async def shutdown_(message: Message) -> None:
     allow_channels=False,
 )
 async def die_(message: Message) -> None:
-    """ set offline timeout to die LYNX """
+    """set offline timeout to die LYNX"""
     global MAX_IDLE_TIME  # pylint: disable=global-statement
     if not Config.HEROKU_APP:
         await message.err("`heroku app not detected !`")
@@ -151,7 +151,7 @@ async def die_(message: Message) -> None:
     },
 )
 async def setvar_(message: Message) -> None:
-    """ set var (heroku) """
+    """set var (heroku)"""
     if not Config.HEROKU_APP:
         await message.err("`heroku app not detected !`")
         return
@@ -187,7 +187,7 @@ async def setvar_(message: Message) -> None:
     },
 )
 async def delvar_(message: Message) -> None:
-    """ del var (heroku) """
+    """del var (heroku)"""
     if not Config.HEROKU_APP:
         await message.err("`heroku app not detected !`")
         return
@@ -215,7 +215,7 @@ async def delvar_(message: Message) -> None:
     },
 )
 async def getvar_(message: Message) -> None:
-    """ get var (heroku) """
+    """get var (heroku)"""
     if not Config.HEROKU_APP:
         await message.err("`heroku app not detected !`")
         return
@@ -339,7 +339,7 @@ async def view_disabled_chats_(message: Message):
     allow_channels=False,
 )
 async def sleep_(message: Message) -> None:
-    """ sleep LYNX """
+    """sleep LYNX"""
     seconds = int(message.matches[0].group(1))
     await message.edit(f"`sleeping {seconds} seconds...`")
     asyncio.get_event_loop().create_task(_slp_wrkr(seconds))
